@@ -4,219 +4,774 @@
     {
       "name": "Semiconductors",
       "subcategories": [
-        "Discrete Semiconductors",
-        "Embedded Processors & Controllers",
-        "Integrated Circuits - ICs",
-        "Memory ICs",
-        "Wireless & RF Semiconductors"
+        {
+          "name": "Discrete Semiconductors",
+          "product_types": [
+            "Diodes & Rectifiers",
+            "Discrete & Power Modules",
+            "Thyristors",
+            "Transistors"
+          ]
+        },
+        {
+          "name": "Embedded Processors & Controllers",
+          "product_types": [
+            "CPLD - Complex Programmable Logic Devices",
+            "CPU - Central Processing Units",
+            "Digital Signal Processors & Controllers - DSP, DSC",
+            "EEPLD - Electronically Erasable Programmable Logic Devices",
+            "FPGA - Configuration Memory",
+            "FPGA - Field Programmable Gate Array",
+            "Microcontrollers - MCU",
+            "Microprocessors - MPU",
+            "Processors - Application Specialised",
+            "RF System on a Chip - SoC",
+            "SPLD - Simple Programmable Logic Devices",
+            "Systems on a Chip - SoC"
+          ]
+        },
+        {
+          "name": "Integrated Circuits - ICs",
+          "product_types": [
+            "Active Filter",
+            "Amplifier ICs",
+            "Audio ICs",
+            "Chipsets",
+            "Clock & Timer ICs",
+            "Communication & Networking ICs",
+            "Counter ICs",
+            "Data Converter ICs",
+            "Digital Potentiometer ICs",
+            "Driver ICs",
+            "Embedded Processors & Controllers",
+            "Equalisers",
+            "Interface ICs",
+            "Logic ICs",
+            "Memory ICs",
+            "Multimedia ICs",
+            "Optocouplers/Photocouplers",
+            "Power Management ICs",
+            "Programmable Logic ICs",
+            "Security ICs / Authentication ICs",
+            "Switch ICs",
+            "Wireless & RF Integrated Circuits"
+          ]
+        },
+        {
+          "name": "Memory ICs",
+          "product_types": [
+            "DRAM",
+            "EEPROM",
+            "eMMC",
+            "EPROM",
+            "FIFO",
+            "F-RAM",
+            "Managed NAND",
+            "Memory Controllers",
+            "Memory IC Development Tools",
+            "Memory Modules & Memory Cards",
+            "MRAM",
+            "Multichip Packages",
+            "NAND Flash",
+            "NOR Flash",
+            "NVRAM",
+            "SRAM",
+            "Storage",
+            "Universal Flash Storage - UFS"
+          ]
+        },
+        {
+          "name": "Wireless & RF Semiconductors",
+          "product_types": [
+            "PIN Diodes",
+            "RF Circulators",
+            "RF Isolators",
+            "Transistors RF",
+            "Wireless & RF Integrated Circuits"
+          ]
+        }
       ]
     },
     {
       "name": "Circuit Protection",
       "subcategories": [
-        "Circuit Breakers & Accessories",
-        "Circuit Protection Kits",
-        "ESD Protection Diodes / TVS Diodes",
-        "Fuse Holders",
-        "Fuses",
-        "Gas Discharge Tubes - GDTs / Gas Plasma Arrestors",
-        "LED Protection Devices",
-        "Power Outlet Strips",
-        "Resettable Fuses - PPTC",
-        "Surge Protective Devices - SPD",
-        "Thermal Cut-offs",
-        "Thermistors",
-        "Thyristors",
-        "Varistors"
+        {
+          "name": "Circuit Breakers & Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Circuit Protection Kits",
+          "product_types": []
+        },
+        {
+          "name": "ESD Protection Diodes / TVS Diodes",
+          "product_types": []
+        },
+        {
+          "name": "Fuse Holders",
+          "product_types": []
+        },
+        {
+          "name": "Fuses",
+          "product_types": []
+        },
+        {
+          "name": "Gas Discharge Tubes - GDTs / Gas Plasma Arrestors",
+          "product_types": []
+        },
+        {
+          "name": "LED Protection Devices",
+          "product_types": []
+        },
+        {
+          "name": "Power Outlet Strips",
+          "product_types": []
+        },
+        {
+          "name": "Resettable Fuses - PPTC",
+          "product_types": []
+        },
+        {
+          "name": "Surge Protective Devices - SPD",
+          "product_types": []
+        },
+        {
+          "name": "Thermal Cut-offs",
+          "product_types": []
+        },
+        {
+          "name": "Thermistors",
+          "product_types": []
+        },
+        {
+          "name": "Thyristors",
+          "product_types": []
+        },
+        {
+          "name": "Varistors",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Connectors",
       "subcategories": [
-        "Audio & Video Connectors",
-        "Automotive Connectors",
-        "Backplane Connectors",
-        "Board to Board & Mezzanine Connectors",
-        "Cable Assemblies",
-        "Card Edge Connectors",
-        "Circular Connectors",
-        "Contact Probes",
-        "Data Bus Components",
-        "D-Sub Connectors",
-        "EV Connectors",
-        "FFC / FPC",
-        "Fibre Optic Connectors",
-        "Fibre Optic MIL Spec Connectors",
-        "Headers & Wire Housings",
-        "I/O Connectors",
-        "IC & Component Sockets",
-        "IEEE 1394 Connectors",
-        "Junction Systems",
-        "Lighting Connectors",
-        "Memory Connectors",
-        "MIL-Spec / MIL-Type",
-        "Modular Connectors / Ethernet Connectors",
-        "Pin & Socket Connectors",
-        "Power Connectors",
-        "RF Interconnects",
-        "Solar Connectors / Photovoltaic Connectors",
-        "Terminal Blocks",
-        "Terminals",
-        "Unspecified Connectors",
-        "USB Connectors",
-        "Wire & Cable"
+        {
+          "name": "Audio & Video Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Automotive Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Backplane Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Board to Board & Mezzanine Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Cable Assemblies",
+          "product_types": []
+        },
+        {
+          "name": "Card Edge Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Circular Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Contact Probes",
+          "product_types": []
+        },
+        {
+          "name": "Data Bus Components",
+          "product_types": []
+        },
+        {
+          "name": "D-Sub Connectors",
+          "product_types": []
+        },
+        {
+          "name": "EV Connectors",
+          "product_types": []
+        },
+        {
+          "name": "FFC / FPC",
+          "product_types": []
+        },
+        {
+          "name": "Fibre Optic Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Fibre Optic MIL Spec Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Headers & Wire Housings",
+          "product_types": []
+        },
+        {
+          "name": "I/O Connectors",
+          "product_types": []
+        },
+        {
+          "name": "IC & Component Sockets",
+          "product_types": []
+        },
+        {
+          "name": "IEEE 1394 Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Junction Systems",
+          "product_types": []
+        },
+        {
+          "name": "Lighting Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Memory Connectors",
+          "product_types": []
+        },
+        {
+          "name": "MIL-Spec / MIL-Type",
+          "product_types": []
+        },
+        {
+          "name": "Modular Connectors / Ethernet Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Pin & Socket Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Power Connectors",
+          "product_types": []
+        },
+        {
+          "name": "RF Interconnects",
+          "product_types": []
+        },
+        {
+          "name": "Solar Connectors / Photovoltaic Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Terminal Blocks",
+          "product_types": []
+        },
+        {
+          "name": "Terminals",
+          "product_types": []
+        },
+        {
+          "name": "Unspecified Connectors",
+          "product_types": []
+        },
+        {
+          "name": "USB Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Wire & Cable",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Electromechanical",
       "subcategories": [
-        "Audio Devices",
-        "Circuit Breakers",
-        "Encoders",
-        "Hardware",
-        "Knobs & Dials",
-        "Motors & Drives",
-        "Printers",
-        "Relays, Contactors & Solenoids",
-        "Switches"
+        {
+          "name": "Audio Devices",
+          "product_types": []
+        },
+        {
+          "name": "Circuit Breakers",
+          "product_types": []
+        },
+        {
+          "name": "Encoders",
+          "product_types": []
+        },
+        {
+          "name": "Hardware",
+          "product_types": []
+        },
+        {
+          "name": "Knobs & Dials",
+          "product_types": []
+        },
+        {
+          "name": "Motors & Drives",
+          "product_types": []
+        },
+        {
+          "name": "Printers",
+          "product_types": []
+        },
+        {
+          "name": "Relays, Contactors & Solenoids",
+          "product_types": []
+        },
+        {
+          "name": "Switches",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Embedded Solutions",
       "subcategories": [
-        "Accelerator Cards",
-        "Audio Modules",
-        "Computing",
-        "Data Conversion Modules",
-        "Display Modules",
-        "Energy Harvesting Modules",
-        "Engineering Tools",
-        "Ethernet & Communication Modules",
-        "Interface Modules",
-        "Memory & Data Storage",
-        "Modules Accessories",
-        "Other Modules",
-        "Power Management Modules",
-        "Sensor Modules",
-        "Software",
-        "Video Modules",
-        "Wireless & RF Modules"
+        {
+          "name": "Accelerator Cards",
+          "product_types": []
+        },
+        {
+          "name": "Audio Modules",
+          "product_types": []
+        },
+        {
+          "name": "Computing",
+          "product_types": []
+        },
+        {
+          "name": "Data Conversion Modules",
+          "product_types": []
+        },
+        {
+          "name": "Display Modules",
+          "product_types": []
+        },
+        {
+          "name": "Energy Harvesting Modules",
+          "product_types": []
+        },
+        {
+          "name": "Engineering Tools",
+          "product_types": []
+        },
+        {
+          "name": "Ethernet & Communication Modules",
+          "product_types": []
+        },
+        {
+          "name": "Interface Modules",
+          "product_types": []
+        },
+        {
+          "name": "Memory & Data Storage",
+          "product_types": []
+        },
+        {
+          "name": "Modules Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Other Modules",
+          "product_types": []
+        },
+        {
+          "name": "Power Management Modules",
+          "product_types": []
+        },
+        {
+          "name": "Sensor Modules",
+          "product_types": []
+        },
+        {
+          "name": "Software",
+          "product_types": []
+        },
+        {
+          "name": "Video Modules",
+          "product_types": []
+        },
+        {
+          "name": "Wireless & RF Modules",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Enclosures",
       "subcategories": [
-        "Enclosures for Industrial Automation",
-        "Enclosures for Single Board Computing",
-        "Enclosures, Boxes & Cases",
-        "Racks & Cabinets",
-        "Standard Electrical",
-        "Storage Boxes & Cases"
+        {
+          "name": "Enclosures for Industrial Automation",
+          "product_types": []
+        },
+        {
+          "name": "Enclosures for Single Board Computing",
+          "product_types": []
+        },
+        {
+          "name": "Enclosures, Boxes & Cases",
+          "product_types": []
+        },
+        {
+          "name": "Racks & Cabinets",
+          "product_types": []
+        },
+        {
+          "name": "Standard Electrical",
+          "product_types": []
+        },
+        {
+          "name": "Storage Boxes & Cases",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Engineering Development Tools",
       "subcategories": [
-        "Analogue & Digital IC Development Tools",
-        "Assortment Kits",
-        "Communication Development Tools",
-        "Development Software",
-        "Display Development Tools",
-        "Embedded Processor Development Kits",
-        "Embedded Tools & Accessories",
-        "Fibre Optic Development Tools",
-        "LED Lighting Development Tools",
-        "Memory IC Development Tools",
-        "Optoelectronic Development Tools",
-        "Power Management IC Development Tools",
-        "Programmable Logic IC Development Tools",
-        "RF / Wireless Development Tools",
-        "Security/Authentication Development Tools",
-        "Sensor Development Tools"
+        {
+          "name": "Analogue & Digital IC Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Assortment Kits",
+          "product_types": []
+        },
+        {
+          "name": "Communication Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Development Software",
+          "product_types": []
+        },
+        {
+          "name": "Display Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Embedded Processor Development Kits",
+          "product_types": []
+        },
+        {
+          "name": "Embedded Tools & Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Fibre Optic Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "LED Lighting Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Memory IC Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Optoelectronic Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Power Management IC Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Programmable Logic IC Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "RF / Wireless Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Security/Authentication Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Sensor Development Tools",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Industrial Automation",
       "subcategories": [
-        "Contactors",
-        "Controllers",
-        "Electrical Products",
-        "E-Mobility",
-        "Fibre Optics",
-        "Field I/O",
-        "Hardware",
-        "Human Machine Interface - HMI",
-        "Industrial Computing",
-        "Industrial Connectors",
-        "Industrial Development Tools",
-        "Industrial Displays",
-        "Industrial Enclosures",
-        "Industrial Lighting & Indication",
-        "Industrial Power",
-        "Industrial Relays & Accessories",
-        "Industrial Safety",
-        "Industrial Sensors",
-        "Industrial Switches",
-        "Industrial Terminal Blocks",
-        "Motors & Motion",
-        "Network & Communications",
-        "Panel Meters",
-        "Printers",
-        "Robotics",
-        "Solenoids & Actuators",
-        "Test & Measurement",
-        "Wire & Cable"
+        {
+          "name": "Contactors",
+          "product_types": []
+        },
+        {
+          "name": "Controllers",
+          "product_types": []
+        },
+        {
+          "name": "Electrical Products",
+          "product_types": []
+        },
+        {
+          "name": "E-Mobility",
+          "product_types": []
+        },
+        {
+          "name": "Fibre Optics",
+          "product_types": []
+        },
+        {
+          "name": "Field I/O",
+          "product_types": []
+        },
+        {
+          "name": "Hardware",
+          "product_types": []
+        },
+        {
+          "name": "Human Machine Interface - HMI",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Computing",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Connectors",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Development Tools",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Displays",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Enclosures",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Lighting & Indication",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Power",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Relays & Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Safety",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Sensors",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Switches",
+          "product_types": []
+        },
+        {
+          "name": "Industrial Terminal Blocks",
+          "product_types": []
+        },
+        {
+          "name": "Motors & Motion",
+          "product_types": []
+        },
+        {
+          "name": "Network & Communications",
+          "product_types": []
+        },
+        {
+          "name": "Panel Meters",
+          "product_types": []
+        },
+        {
+          "name": "Printers",
+          "product_types": []
+        },
+        {
+          "name": "Robotics",
+          "product_types": []
+        },
+        {
+          "name": "Solenoids & Actuators",
+          "product_types": []
+        },
+        {
+          "name": "Test & Measurement",
+          "product_types": []
+        },
+        {
+          "name": "Wire & Cable",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "LED Lighting",
       "subcategories": [
-        "LED Bulbs & Modules",
-        "LED Lighting Electronics",
-        "LED Lighting Mechanical",
-        "LED Lighting Optics",
-        "LEDs - Light Emitting Diodes",
-        "Lighting Connectors"
+        {
+          "name": "LED Bulbs & Modules",
+          "product_types": []
+        },
+        {
+          "name": "LED Lighting Electronics",
+          "product_types": []
+        },
+        {
+          "name": "LED Lighting Mechanical",
+          "product_types": []
+        },
+        {
+          "name": "LED Lighting Optics",
+          "product_types": []
+        },
+        {
+          "name": "LEDs - Light Emitting Diodes",
+          "product_types": []
+        },
+        {
+          "name": "Lighting Connectors",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Opto-electronics",
       "subcategories": [
-        "Backlighting Components",
-        "Cameras & Accessories",
-        "Displays",
-        "Drivers",
-        "Fibre Optics",
-        "Infrared Communications",
-        "Lamps, Holders & Accessories",
-        "Lasers",
-        "LED Indication",
-        "LED Lighting",
-        "LEDs",
-        "Optical Detectors & Sensors",
-        "Optical Switches",
-        "Optocouplers/Photocouplers"
+        {
+          "name": "Backlighting Components",
+          "product_types": []
+        },
+        {
+          "name": "Cameras & Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Displays",
+          "product_types": []
+        },
+        {
+          "name": "Drivers",
+          "product_types": []
+        },
+        {
+          "name": "Fibre Optics",
+          "product_types": []
+        },
+        {
+          "name": "Infrared Communications",
+          "product_types": []
+        },
+        {
+          "name": "Lamps, Holders & Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Lasers",
+          "product_types": []
+        },
+        {
+          "name": "LED Indication",
+          "product_types": []
+        },
+        {
+          "name": "LED Lighting",
+          "product_types": []
+        },
+        {
+          "name": "LEDs",
+          "product_types": []
+        },
+        {
+          "name": "Optical Detectors & Sensors",
+          "product_types": []
+        },
+        {
+          "name": "Optical Switches",
+          "product_types": []
+        },
+        {
+          "name": "Optocouplers/Photocouplers",
+          "product_types": []
+        }
       ]
     },
     {
       "name": "Passive Components",
       "subcategories": [
-        "Antenna Accessories",
-        "Antennas",
-        "Audio Transformers / Signal Transformers",
-        "Capacitors",
-        "EMI Filters / EMI Suppression",
-        "Encoders",
-        "Ferrites",
-        "Filters",
-        "Frequency Control & Timing Devices",
-        "Inductors, Chokes & Coils",
-        "Potentiometers, Trimmers & Rheostats",
-        "Resistors",
-        "Signal Conditioning",
-        "Thermistors - NTC",
-        "Thermistors - PTC",
-        "Varistors"
+        {
+          "name": "Antenna Accessories",
+          "product_types": []
+        },
+        {
+          "name": "Antennas",
+          "product_types": []
+        },
+        {
+          "name": "Audio Transformers / Signal Transformers",
+          "product_types": []
+        },
+        {
+          "name": "Capacitors",
+          "product_types": []
+        },
+        {
+          "name": "EMI Filters / EMI Suppression",
+          "product_types": []
+        },
+        {
+          "name": "Encoders",
+          "product_types": []
+        },
+        {
+          "name": "Ferrites",
+          "product_types": []
+        },
+        {
+          "name": "Filters",
+          "product_types": []
+        },
+        {
+          "name": "Frequency Control & Timing Devices",
+          "product_types": []
+        },
+        {
+          "name": "Inductors, Chokes & Coils",
+          "product_types": []
+        },
+        {
+          "name": "Potentiometers, Trimmers & Rheostats",
+          "product_types": []
+        },
+        {
+          "name": "Resistors",
+          "product_types": []
+        },
+        {
+          "name": "Signal Conditioning",
+          "product_types": []
+        },
+        {
+          "name": "Thermistors - NTC",
+          "product_types": []
+        },
+        {
+          "name": "Thermistors - PTC",
+          "product_types": []
+        },
+        {
+          "name": "Varistors",
+          "product_types": []
+        }
       ]
     },
     {
