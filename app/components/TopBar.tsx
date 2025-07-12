@@ -12,7 +12,7 @@ export function TopBar() {
               to="/" 
               className="flex items-center space-x-2 text-xl font-bold text-white hover:text-gray-200 transition-colors duration-200"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#FFA500] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">MC</span>
               </div>
               <span>MyComponents</span>
