@@ -1,0 +1,378 @@
+
+{
+  "categories": [
+    {
+      "name": "Semiconductors",
+      "subcategories": [
+        "Discrete Semiconductors",
+        "Embedded Processors & Controllers",
+        "Integrated Circuits - ICs",
+        "Memory ICs",
+        "Wireless & RF Semiconductors"
+      ]
+    },
+    {
+      "name": "Circuit Protection",
+      "subcategories": [
+        "Circuit Breakers & Accessories",
+        "Circuit Protection Kits",
+        "ESD Protection Diodes / TVS Diodes",
+        "Fuse Holders",
+        "Fuses",
+        "Gas Discharge Tubes - GDTs / Gas Plasma Arrestors",
+        "LED Protection Devices",
+        "Power Outlet Strips",
+        "Resettable Fuses - PPTC",
+        "Surge Protective Devices - SPD",
+        "Thermal Cut-offs",
+        "Thermistors",
+        "Thyristors",
+        "Varistors"
+      ]
+    },
+    {
+      "name": "Connectors",
+      "subcategories": [
+        "Audio & Video Connectors",
+        "Automotive Connectors",
+        "Backplane Connectors",
+        "Board to Board & Mezzanine Connectors",
+        "Cable Assemblies",
+        "Card Edge Connectors",
+        "Circular Connectors",
+        "Contact Probes",
+        "Data Bus Components",
+        "D-Sub Connectors",
+        "EV Connectors",
+        "FFC / FPC",
+        "Fibre Optic Connectors",
+        "Fibre Optic MIL Spec Connectors",
+        "Headers & Wire Housings",
+        "I/O Connectors",
+        "IC & Component Sockets",
+        "IEEE 1394 Connectors",
+        "Junction Systems",
+        "Lighting Connectors",
+        "Memory Connectors",
+        "MIL-Spec / MIL-Type",
+        "Modular Connectors / Ethernet Connectors",
+        "Pin & Socket Connectors",
+        "Power Connectors",
+        "RF Interconnects",
+        "Solar Connectors / Photovoltaic Connectors",
+        "Terminal Blocks",
+        "Terminals",
+        "Unspecified Connectors",
+        "USB Connectors",
+        "Wire & Cable"
+      ]
+    },
+    {
+      "name": "Electromechanical",
+      "subcategories": [
+        "Audio Devices",
+        "Circuit Breakers",
+        "Encoders",
+        "Hardware",
+        "Knobs & Dials",
+        "Motors & Drives",
+        "Printers",
+        "Relays, Contactors & Solenoids",
+        "Switches"
+      ]
+    },
+    {
+      "name": "Embedded Solutions",
+      "subcategories": [
+        "Accelerator Cards",
+        "Audio Modules",
+        "Computing",
+        "Data Conversion Modules",
+        "Display Modules",
+        "Energy Harvesting Modules",
+        "Engineering Tools",
+        "Ethernet & Communication Modules",
+        "Interface Modules",
+        "Memory & Data Storage",
+        "Modules Accessories",
+        "Other Modules",
+        "Power Management Modules",
+        "Sensor Modules",
+        "Software",
+        "Video Modules",
+        "Wireless & RF Modules"
+      ]
+    },
+    {
+      "name": "Enclosures",
+      "subcategories": [
+        "Enclosures for Industrial Automation",
+        "Enclosures for Single Board Computing",
+        "Enclosures, Boxes & Cases",
+        "Racks & Cabinets",
+        "Standard Electrical",
+        "Storage Boxes & Cases"
+      ]
+    },
+    {
+      "name": "Engineering Development Tools",
+      "subcategories": [
+        "Analogue & Digital IC Development Tools",
+        "Assortment Kits",
+        "Communication Development Tools",
+        "Development Software",
+        "Display Development Tools",
+        "Embedded Processor Development Kits",
+        "Embedded Tools & Accessories",
+        "Fibre Optic Development Tools",
+        "LED Lighting Development Tools",
+        "Memory IC Development Tools",
+        "Optoelectronic Development Tools",
+        "Power Management IC Development Tools",
+        "Programmable Logic IC Development Tools",
+        "RF / Wireless Development Tools",
+        "Security/Authentication Development Tools",
+        "Sensor Development Tools"
+      ]
+    },
+    {
+      "name": "Industrial Automation",
+      "subcategories": [
+        "Contactors",
+        "Controllers",
+        "Electrical Products",
+        "E-Mobility",
+        "Fibre Optics",
+        "Field I/O",
+        "Hardware",
+        "Human Machine Interface - HMI",
+        "Industrial Computing",
+        "Industrial Connectors",
+        "Industrial Development Tools",
+        "Industrial Displays",
+        "Industrial Enclosures",
+        "Industrial Lighting & Indication",
+        "Industrial Power",
+        "Industrial Relays & Accessories",
+        "Industrial Safety",
+        "Industrial Sensors",
+        "Industrial Switches",
+        "Industrial Terminal Blocks",
+        "Motors & Motion",
+        "Network & Communications",
+        "Panel Meters",
+        "Printers",
+        "Robotics",
+        "Solenoids & Actuators",
+        "Test & Measurement",
+        "Wire & Cable"
+      ]
+    },
+    {
+      "name": "LED Lighting",
+      "subcategories": [
+        "LED Bulbs & Modules",
+        "LED Lighting Electronics",
+        "LED Lighting Mechanical",
+        "LED Lighting Optics",
+        "LEDs - Light Emitting Diodes",
+        "Lighting Connectors"
+      ]
+    },
+    {
+      "name": "Opto-electronics",
+      "subcategories": [
+        "Backlighting Components",
+        "Cameras & Accessories",
+        "Displays",
+        "Drivers",
+        "Fibre Optics",
+        "Infrared Communications",
+        "Lamps, Holders & Accessories",
+        "Lasers",
+        "LED Indication",
+        "LED Lighting",
+        "LEDs",
+        "Optical Detectors & Sensors",
+        "Optical Switches",
+        "Optocouplers/Photocouplers"
+      ]
+    },
+    {
+      "name": "Passive Components",
+      "subcategories": [
+        "Antenna Accessories",
+        "Antennas",
+        "Audio Transformers / Signal Transformers",
+        "Capacitors",
+        "EMI Filters / EMI Suppression",
+        "Encoders",
+        "Ferrites",
+        "Filters",
+        "Frequency Control & Timing Devices",
+        "Inductors, Chokes & Coils",
+        "Potentiometers, Trimmers & Rheostats",
+        "Resistors",
+        "Signal Conditioning",
+        "Thermistors - NTC",
+        "Thermistors - PTC",
+        "Varistors"
+      ]
+    },
+    {
+      "name": "Power",
+      "subcategories": [
+        "AC Power Entry Modules",
+        "AC Power Leads",
+        "AC Power Plugs & Receptacles",
+        "Batteries",
+        "Battery Chargers",
+        "Battery Holders, Clips & Contacts",
+        "Buffer Modules",
+        "DC Power Connectors",
+        "DC Power Cords",
+        "DC/DC Converters",
+        "E-Mobility",
+        "Power Condition",
+        "Power Inverters",
+        "Power Management ICs",
+        "Power Supplies",
+        "Redundancy Modules",
+        "Solar Panels & Solar Cells",
+        "Supercapacitors",
+        "Transformers"
+      ]
+    },
+    {
+      "name": "RF & Wireless",
+      "subcategories": [
+        "Antennas & Accessories",
+        "NFC/RFID Solutions",
+        "RF / Wireless Development Tools",
+        "RF Cables & Connectors",
+        "RF Capacitors",
+        "RF Inductors",
+        "RF Integrated Circuits",
+        "RF Relays",
+        "RF Resistors",
+        "RF Test Equipment",
+        "RF Transistors",
+        "Wireless Modules"
+      ]
+    },
+    {
+      "name": "Sensors",
+      "subcategories": [
+        "Audio Sensors",
+        "Biometric Sensors",
+        "Capacitive Touch Sensors",
+        "Current Sensors",
+        "Encoders",
+        "Environmental Sensors",
+        "Flow Sensors",
+        "Flow Sensors – Industrial",
+        "Force Sensors & Load Cells",
+        "Level Sensors",
+        "Linear Displacement Sensors",
+        "Magnetic Sensors",
+        "Motion & Position Sensors",
+        "Optical Sensors",
+        "Pressure Sensors",
+        "Proximity Sensors",
+        "Sensor Development Tools",
+        "Sensor Fixings & Accessories",
+        "Temperature Sensors",
+        "Vision Sensors"
+      ]
+    },
+    {
+      "name": "Test & Measurement",
+      "subcategories": [
+        "Analysers",
+        "Audio/Video Test Equipment",
+        "Battery Testers",
+        "Benchtop Power Supplies",
+        "Calibration Equipment",
+        "Calibration, Warranties, & Service Plans",
+        "Component Testers",
+        "Data Logging & Acquisition",
+        "DC Electronic Loads",
+        "Decade Boxes",
+        "Environmental Test Equipment",
+        "Fibre Optic Testing",
+        "Frequency Counters",
+        "Function Generators & Synthesisers",
+        "Insulation Testers/Megohmmeters",
+        "LAN/Telecom/Cable Testing",
+        "Multimeters & Voltmeters",
+        "Oscilloscopes",
+        "Panel Meters",
+        "RF Test Cables",
+        "RF Test Equipment",
+        "Source Measure Units - SMUs",
+        "Test Equipment Accessories",
+        "Test Equipment Power Cords",
+        "Thermal Imaging Cameras"
+      ]
+    },
+    {
+      "name": "Thermal Management",
+      "subcategories": [
+        "Fans & Blowers",
+        "Heat Exchangers",
+        "Heat Sinks",
+        "LED Heat Sinks & Thermal Substrates",
+        "Liquid Cold Plates, Liquid Cooling & Heat Pipes",
+        "Liquid Cooling Connectors & Accessories",
+        "Recirculating Chillers",
+        "Temperature Sensors",
+        "Thermal Cut-offs",
+        "Thermal Interface Products",
+        "Thermistors",
+        "Thermoelectric Assemblies",
+        "Thermoelectric Peltier Modules"
+      ]
+    },
+    {
+      "name": "Tools & Supplies",
+      "subcategories": [
+        "3D Printing & Accessories",
+        "Accessories",
+        "Adhesive Tapes",
+        "Antistatic Control Products",
+        "Brushes",
+        "Chemicals",
+        "Dry Wipes",
+        "Labels & Industrial Warning Signs",
+        "Liquid Dispensers & Bottles",
+        "Maker/DIY, Educational",
+        "Pre-Saturated Wipes",
+        "Prototyping Products",
+        "Soldering",
+        "Storage Boxes & Cases",
+        "Swabs",
+        "Tools"
+      ]
+    },
+    {
+      "name": "Wire & Cable",
+      "subcategories": [
+        "Bus Bar Wire",
+        "Cable Assemblies",
+        "Coaxial Cables",
+        "FFC / FPC Jumper Cables",
+        "Fibre Optic",
+        "Fibre Optic Cables",
+        "Flat Cables",
+        "Ground Wire & Ground Braid",
+        "Hook-up Wire",
+        "Magnet Wire",
+        "Multi-Conductor Cables",
+        "Solar Cable",
+        "Test Lead Wire",
+        "Wire & Cable Management",
+        "Wire Wrap Wire"
+      ]
+    }
+  ]
+}
