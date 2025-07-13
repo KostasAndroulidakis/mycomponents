@@ -27,9 +27,6 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                ID
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Image
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -56,11 +53,8 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {inventory.map((item) => (
-              <tr key={item.ID} className="hover:bg-gray-50 transition-colors duration-150">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {item.ID}
-                </td>
+            {inventory.map((item, index) => (
+              <tr key={index} className="hover:bg-gray-50 transition-colors duration-150">
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {item.Image ? (
                     <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
