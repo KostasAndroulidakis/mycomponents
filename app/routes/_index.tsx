@@ -3,6 +3,7 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { readFileSync } from "fs";
 import { InventoryTable } from "~/components/InventoryTable";
+import { FilterMenu } from "~/components/FilterMenu";
 
 interface InventoryItem {
   ID: string;
@@ -28,11 +29,18 @@ export async function loader({ request }: LoaderFunctionArgs) {
     const csvFilePath = "data/inventory.csv";
     const csvData = readFileSync(csvFilePath, "utf-8");
     
+    // Get search params for filtering
+    const url = new URL(request.url);
+    const categoryFilter = url.searchParams.get("category");
+    const subcategoryFilter = url.searchParams.get("subcategory");
+    const productTypeFilter = url.searchParams.get("productType");
+    const searchQuery = url.searchParams.get("q");
+    
     // Parse CSV manually since the file has extra commas
     const lines = csvData.split('\n').filter(line => line.trim());
     const headers = lines[0].split(',');
     
-    const results: InventoryItem[] = [];
+    let results: InventoryItem[] = [];
     
     for (let i = 1; i < lines.length; i++) {
       const values = [];
@@ -69,6 +77,32 @@ export async function loader({ request }: LoaderFunctionArgs) {
       }
     }
     
+    // Apply filters
+    if (categoryFilter) {
+      results = results.filter(item => item.Category === categoryFilter);
+    }
+    
+    if (subcategoryFilter) {
+      results = results.filter(item => item.Subcategory === subcategoryFilter);
+    }
+    
+    if (productTypeFilter) {
+      results = results.filter(item => item.ProductType === productTypeFilter);
+    }
+    
+    // Apply search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      results = results.filter(item => 
+        item.Description.toLowerCase().includes(query) ||
+        item.ManufacturerPartNumber.toLowerCase().includes(query) ||
+        item.Manufacturer.toLowerCase().includes(query) ||
+        item.Category.toLowerCase().includes(query) ||
+        item.Subcategory.toLowerCase().includes(query) ||
+        item.ProductType.toLowerCase().includes(query)
+      );
+    }
+    
     return json({ inventory: results });
   } catch (error) {
     console.error('Error loading inventory:', error);
@@ -89,6 +123,8 @@ export default function Index() {
           Your electronic components inventory management system.
         </p>
       </div>
+      
+      <FilterMenu />
       
       <InventoryTable inventory={inventory} />
     </div>
