@@ -31,6 +31,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     
     // Get search params for filtering
     const url = new URL(request.url);
+    const manufacturerFilter = url.searchParams.get("manufacturer");
     const categoryFilter = url.searchParams.get("category");
     const subcategoryFilter = url.searchParams.get("subcategory");
     const productTypeFilter = url.searchParams.get("productType");
@@ -41,6 +42,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     const headers = lines[0].split(',');
     
     let results: InventoryItem[] = [];
+    const manufacturersSet = new Set<string>();
     
     for (let i = 1; i < lines.length; i++) {
       const values = [];
@@ -74,10 +76,22 @@ export async function loader({ request }: LoaderFunctionArgs) {
           Quantity: values[8]?.trim() || '',
         };
         results.push(item);
+        
+        // Collect unique manufacturers
+        if (item.Manufacturer) {
+          manufacturersSet.add(item.Manufacturer);
+        }
       }
     }
     
+    // Get sorted manufacturers list
+    const manufacturers = Array.from(manufacturersSet).sort();
+    
     // Apply filters
+    if (manufacturerFilter) {
+      results = results.filter(item => item.Manufacturer === manufacturerFilter);
+    }
+    
     if (categoryFilter) {
       results = results.filter(item => item.Category === categoryFilter);
     }
@@ -103,28 +117,19 @@ export async function loader({ request }: LoaderFunctionArgs) {
       );
     }
     
-    return json({ inventory: results });
+    return json({ inventory: results, manufacturers });
   } catch (error) {
     console.error('Error loading inventory:', error);
-    return json({ inventory: [] });
+    return json({ inventory: [], manufacturers: [] });
   }
 }
 
 export default function Index() {
-  const { inventory } = useLoaderData<typeof loader>();
+  const { inventory, manufacturers } = useLoaderData<typeof loader>();
 
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      <div className="bg-white rounded-lg shadow p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          Welcome to MyComponents
-        </h1>
-        <p className="text-gray-600">
-          Your electronic components inventory management system.
-        </p>
-      </div>
-      
-      <FilterMenu />
+      <FilterMenu manufacturers={manufacturers} />
       
       <InventoryTable inventory={inventory} />
     </div>
