@@ -103,3 +103,4 @@ ID,Image,ManufacturerPartNumber,Manufacturer,Description,Category,Subcategory,Pr
 102,,CAP-ELEC-220UF-10V,OEM,"Electrolytic Capacitor 220uF 10V",Passive Components,Capacitors,Electrolytic Capacitor,10,"{"capacitance":"220uF","voltage":"10V","dimensions":"5x11mm","type":"Electrolytic","mounting":"THT","tolerance":"±20%","operatingTemperature":"-40~105°C"}"}
 103,1040-0500-44.jpg,1040-0500-44,SYNFLEX,Enameled Copper Wire,Wire & Cable,Magnet Wire,Enameled Copper Wire,1,"{"Weight":"0.26 kg","Outside Diameter":"0.5 mm","Package":"0.25 kg","Length in Roll":"142 m","Coating":"Single","Max Operating Temperature":"180 °C"}"
 104,908S.png,908S,Unknown,Soldering Iron 80W,Tools & Supplies,Soldering Equipment,Soldering Iron,1,"{"Power":"80W"}"
+105,,EL-MOTOR-130,ELEGOO,3-6V DC Motor with Fan blade,Actuators and Motors,DC Motors,DC Motor,1,"{"voltageRange":"3-6V","type":"130"}"
