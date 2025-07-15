@@ -118,21 +118,21 @@ export function FilterMenu({ className = "", manufacturers = [] }: FilterMenuPro
   const hasActiveFilters = selectedManufacturer || selectedCategory || selectedSubcategory || selectedProductType;
 
   return (
-    <div className="bg-white rounded-lg shadow">
-      <div className="px-6 py-4 border-b border-gray-200">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+      <div className="px-4 py-3 border-b border-gray-200 bg-gray-50">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">Applied Filters:</h2>
+          <h2 className="text-sm font-semibold text-gray-900">Applied Filters:</h2>
           {hasActiveFilters && (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <button
                 onClick={clearAllFilters}
-                className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150"
+                className="text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150"
               >
                 Reset All
               </button>
               <button
                 onClick={clearAllFilters}
-                className="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors duration-150"
+                className="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded hover:bg-blue-700 transition-colors duration-150"
               >
                 Apply Filters
               </button>
@@ -142,47 +142,47 @@ export function FilterMenu({ className = "", manufacturers = [] }: FilterMenuPro
         
         {/* Active Filters Summary */}
         {hasActiveFilters && (
-          <div className="mt-3">
+          <div className="mt-2">
             <div className="flex flex-wrap gap-2">
               {selectedManufacturer && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
                   Manufacturer: {selectedManufacturer}
                   <button
                     onClick={() => handleManufacturerClick(selectedManufacturer)}
-                    className="ml-1.5 w-4 h-4 text-blue-600 hover:text-blue-800"
+                    className="ml-1 w-3 h-3 text-blue-600 hover:text-blue-800"
                   >
                     ×
                   </button>
                 </span>
               )}
               {selectedCategory && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
                   Category: {selectedCategory}
                   <button
                     onClick={() => handleCategoryClick(selectedCategory)}
-                    className="ml-1.5 w-4 h-4 text-blue-600 hover:text-blue-800"
+                    className="ml-1 w-3 h-3 text-blue-600 hover:text-blue-800"
                   >
                     ×
                   </button>
                 </span>
               )}
               {selectedSubcategory && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
                   Subcategory: {selectedSubcategory}
                   <button
                     onClick={() => handleSubcategoryClick(selectedSubcategory)}
-                    className="ml-1.5 w-4 h-4 text-blue-600 hover:text-blue-800"
+                    className="ml-1 w-3 h-3 text-blue-600 hover:text-blue-800"
                   >
                     ×
                   </button>
                 </span>
               )}
               {selectedProductType && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
                   Product Type: {selectedProductType}
                   <button
                     onClick={() => handleProductTypeClick(selectedProductType)}
-                    className="ml-1.5 w-4 h-4 text-blue-600 hover:text-blue-800"
+                    className="ml-1 w-3 h-3 text-blue-600 hover:text-blue-800"
                   >
                     ×
                   </button>
@@ -193,8 +193,8 @@ export function FilterMenu({ className = "", manufacturers = [] }: FilterMenuPro
         )}
       </div>
       
-      <div className="p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Manufacturer Filter */}
           <FilterPanel
             title="Manufacturer"
