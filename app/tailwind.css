@@ -1,3 +1,4 @@
+/* PostCSS with Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,10 +7,17 @@
   html {
     /* Always show scrollbar to prevent layout shift */
     overflow-y: scroll;
-    /* Modern browsers: reserve space for scrollbar */
-    scrollbar-gutter: stable;
   }
-  
+
+  /* Modern browsers: reserve space for scrollbar */
+  /* Fallback for Safari and older browsers */
+  @supports (scrollbar-gutter: stable) {
+    html {
+      scrollbar-gutter: stable;
+      overflow-y: auto;
+    }
+  }
+
   body {
     @apply bg-white;
   }

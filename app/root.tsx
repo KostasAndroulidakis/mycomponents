@@ -5,9 +5,8 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useMatches,
 } from "@remix-run/react";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { readFileSync } from "fs";
 import { TopBar } from "./components/TopBar";
@@ -27,7 +26,7 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader() {
   try {
     const csvFilePath = "data/inventory.csv";
     const csvData = readFileSync(csvFilePath, "utf-8");
@@ -60,9 +59,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   const { totalComponents } = useLoaderData<typeof loader>();
-  
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mouser-bg-light">
       <TopBar totalComponents={totalComponents} />
       <main>
         <Outlet />

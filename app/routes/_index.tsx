@@ -28,7 +28,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   try {
     const csvFilePath = "data/inventory.csv";
     const csvData = readFileSync(csvFilePath, "utf-8");
-    
+
     // Get search params for filtering
     const url = new URL(request.url);
     const manufacturerFilter = url.searchParams.get("manufacturer");
@@ -36,19 +36,18 @@ export async function loader({ request }: LoaderFunctionArgs) {
     const subcategoryFilter = url.searchParams.get("subcategory");
     const productTypeFilter = url.searchParams.get("productType");
     const searchQuery = url.searchParams.get("q");
-    
+
     // Parse CSV manually since the file has extra commas
     const lines = csvData.split('\n').filter(line => line.trim());
-    const headers = lines[0].split(',');
-    
+
     let results: InventoryItem[] = [];
     const manufacturersSet = new Set<string>();
-    
+
     for (let i = 1; i < lines.length; i++) {
       const values = [];
       let current = '';
       let inQuotes = false;
-      
+
       // Parse CSV line handling quoted fields
       for (let j = 0; j < lines[i].length; j++) {
         const char = lines[i][j];
@@ -62,7 +61,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
         }
       }
       values.push(current); // Add the last value
-      
+
       if (values.length >= 9) {
         const item: InventoryItem = {
           ID: values[0]?.trim() || '',
@@ -76,38 +75,38 @@ export async function loader({ request }: LoaderFunctionArgs) {
           Quantity: values[8]?.trim() || '',
         };
         results.push(item);
-        
+
         // Collect unique manufacturers
         if (item.Manufacturer) {
           manufacturersSet.add(item.Manufacturer);
         }
       }
     }
-    
+
     // Get sorted manufacturers list
     const manufacturers = Array.from(manufacturersSet).sort();
-    
+
     // Apply filters
     if (manufacturerFilter) {
       results = results.filter(item => item.Manufacturer === manufacturerFilter);
     }
-    
+
     if (categoryFilter) {
       results = results.filter(item => item.Category === categoryFilter);
     }
-    
+
     if (subcategoryFilter) {
       results = results.filter(item => item.Subcategory === subcategoryFilter);
     }
-    
+
     if (productTypeFilter) {
       results = results.filter(item => item.ProductType === productTypeFilter);
     }
-    
+
     // Apply search query
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      results = results.filter(item => 
+      results = results.filter(item =>
         item.Description.toLowerCase().includes(query) ||
         item.ManufacturerPartNumber.toLowerCase().includes(query) ||
         item.Manufacturer.toLowerCase().includes(query) ||
@@ -116,7 +115,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
         item.ProductType.toLowerCase().includes(query)
       );
     }
-    
+
     return json({ inventory: results, manufacturers });
   } catch (error) {
     console.error('Error loading inventory:', error);
@@ -130,7 +129,7 @@ export default function Index() {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       <FilterMenu manufacturers={manufacturers} />
-      
+
       <InventoryTable inventory={inventory} />
     </div>
   );
