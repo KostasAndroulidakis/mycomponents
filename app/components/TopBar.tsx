@@ -1,5 +1,7 @@
 import { Link } from "@remix-run/react";
 import { SearchBar } from "./SearchBar";
+import { DIMENSIONS } from "~/constants/dimensions";
+import { PATHS } from "~/constants/paths";
 
 interface TopBarProps {
   totalComponents?: number;
@@ -9,14 +11,14 @@ export function TopBar({ totalComponents }: TopBarProps) {
   return (
     <header className="bg-mouser-primary shadow-sm border-b border-mouser-border-light">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-8">
+        <div className={`flex items-center justify-between ${DIMENSIONS.HEADER_HEIGHT} ${DIMENSIONS.HEADER_GAPS}`}>
           {/* Logo and Brand */}
           <div className="flex-shrink-0">
             <Link
-              to="/"
+              to={PATHS.HOME}
               className="flex items-center space-x-2 text-xl font-bold text-white hover:text-gray-200 transition-colors duration-200"
             >
-              <div className="w-8 h-8 bg-mouser-orange rounded-lg flex items-center justify-center">
+              <div className={`${DIMENSIONS.LOGO_SIZE} bg-mouser-orange rounded-lg flex items-center justify-center`}>
                 <span className="text-white font-bold text-sm">MC</span>
               </div>
               <span>MyComponents</span>

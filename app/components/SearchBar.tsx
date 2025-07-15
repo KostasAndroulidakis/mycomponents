@@ -1,5 +1,6 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Form } from "@remix-run/react";
+import { DIMENSIONS } from "~/constants/dimensions";
 
 interface SearchBarProps {
   placeholder?: string;
@@ -16,7 +17,7 @@ export function SearchBar({
     <Form method="get" className={`relative ${className}`}>
       <div className="relative">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <MagnifyingGlassIcon className="h-5 w-5 text-mouser-text-disabled" aria-hidden="true" />
+          <MagnifyingGlassIcon className={`${DIMENSIONS.SEARCH_ICON_SIZE} text-mouser-text-disabled`} aria-hidden="true" />
         </div>
         <input
           type="search"

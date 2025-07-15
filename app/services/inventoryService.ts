@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import { PATHS } from "~/constants/paths";
 
 export interface InventoryItem {
   ID: string;
@@ -54,8 +55,7 @@ function parseCSVLine(line: string): string[] {
  */
 export function loadInventoryData(): InventoryItem[] {
   try {
-    const csvFilePath = "data/inventory.csv";
-    const csvData = readFileSync(csvFilePath, "utf-8");
+    const csvData = readFileSync(PATHS.INVENTORY_CSV, "utf-8");
     const lines = csvData.split('\n').filter(line => line.trim());
     
     const results: InventoryItem[] = [];
@@ -92,8 +92,7 @@ export function loadInventoryData(): InventoryItem[] {
  */
 export function getInventoryCount(): number {
   try {
-    const csvFilePath = "data/inventory.csv";
-    const csvData = readFileSync(csvFilePath, "utf-8");
+    const csvData = readFileSync(PATHS.INVENTORY_CSV, "utf-8");
     const lines = csvData.split('\n').filter(line => line.trim());
     // Subtract 1 for header row
     return lines.length - 1;

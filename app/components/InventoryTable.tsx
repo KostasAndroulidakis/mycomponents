@@ -1,4 +1,6 @@
 import { type InventoryItem } from "~/services/inventoryService";
+import { PATHS } from "~/constants/paths";
+import { DIMENSIONS } from "~/constants/dimensions";
 
 interface InventoryTableProps {
   inventory: InventoryItem[];
@@ -51,11 +53,11 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
               <tr key={index} className="hover:bg-mouser-hover-gray transition-colors duration-150">
                 <td className="px-3 py-2 whitespace-nowrap">
                   {item.Image ? (
-                    <div className="w-10 h-10 bg-mouser-bg-medium rounded flex items-center justify-center">
+                    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
                       <img
-                        src={`/data/images/components/${item.Image}`}
+                        src={`${PATHS.COMPONENT_IMAGES}${item.Image}`}
                         alt={item.Description}
-                        className="w-8 h-8 object-cover rounded"
+                        className={`${DIMENSIONS.COMPONENT_IMAGE_SIZE} object-cover rounded`}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
@@ -64,7 +66,7 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
                       />
                     </div>
                   ) : (
-                    <div className="w-10 h-10 bg-mouser-bg-medium rounded flex items-center justify-center">
+                    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
                       <span className="text-xs text-mouser-text-disabled">No Image</span>
                     </div>
                   )}

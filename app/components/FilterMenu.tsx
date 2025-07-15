@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "@remix-run/react";
 import { FilterPanel } from "./FilterPanel";
 import { CATEGORIES } from "~/constants/categories";
+import { DIMENSIONS } from "~/constants/dimensions";
 
 interface FilterMenuProps {
   className?: string;
@@ -143,13 +144,13 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
         {/* Active Filters Summary */}
         {hasActiveFilters && (
           <div className="mt-2">
-            <div className="flex flex-wrap gap-2">
+            <div className={`flex flex-wrap ${DIMENSIONS.BADGE_GAPS}`}>
               {selectedManufacturer && (
                 <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-mouser-primary">
                   Manufacturer: {selectedManufacturer}
                   <button
                     onClick={() => handleManufacturerClick(selectedManufacturer)}
-                    className="ml-1 w-3 h-3 text-mouser-primary hover:text-mouser-hover-blue"
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
                   >
                     ×
                   </button>
@@ -160,7 +161,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   Category: {selectedCategory}
                   <button
                     onClick={() => handleCategoryClick(selectedCategory)}
-                    className="ml-1 w-3 h-3 text-mouser-primary hover:text-mouser-hover-blue"
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
                   >
                     ×
                   </button>
@@ -171,7 +172,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   Subcategory: {selectedSubcategory}
                   <button
                     onClick={() => handleSubcategoryClick(selectedSubcategory)}
-                    className="ml-1 w-3 h-3 text-mouser-primary hover:text-mouser-hover-blue"
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
                   >
                     ×
                   </button>
@@ -182,7 +183,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   Product Type: {selectedProductType}
                   <button
                     onClick={() => handleProductTypeClick(selectedProductType)}
-                    className="ml-1 w-3 h-3 text-mouser-primary hover:text-mouser-hover-blue"
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
                   >
                     ×
                   </button>
@@ -194,7 +195,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
       </div>
 
       <div className="p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${DIMENSIONS.FILTER_GRID_GAPS}`}>
           {/* Manufacturer Filter */}
           <FilterPanel
             title="Manufacturer"

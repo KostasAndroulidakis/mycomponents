@@ -4,6 +4,7 @@ import { useLoaderData } from "@remix-run/react";
 import { InventoryTable } from "~/components/InventoryTable";
 import { FilterMenu } from "~/components/FilterMenu";
 import { getInventoryData, type InventoryFilters } from "~/services/inventoryService";
+import { DIMENSIONS } from "~/constants/dimensions";
 
 export const meta: MetaFunction = () => {
   return [
@@ -31,7 +32,7 @@ export default function Index() {
   const { inventory, manufacturers } = useLoaderData<typeof loader>();
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className={`w-full ${DIMENSIONS.MAIN_PADDING} ${DIMENSIONS.CONTENT_PADDING} ${DIMENSIONS.SECTION_SPACING}`}>
       <FilterMenu manufacturers={manufacturers} />
 
       <InventoryTable inventory={inventory} />
