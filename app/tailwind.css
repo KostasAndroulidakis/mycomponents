@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white;
+@layer base {
+  html {
+    /* Always show scrollbar to prevent layout shift */
+    overflow-y: scroll;
+    /* Modern browsers: reserve space for scrollbar */
+    scrollbar-gutter: stable;
+  }
+  
+  body {
+    @apply bg-white;
+  }
 }
