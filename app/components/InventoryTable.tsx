@@ -30,29 +30,29 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
                 Image
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Part Number
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
+                Part #
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Manufacturer
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
+                Mfr.
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
                 Description
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
                 Category
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
                 Subcategory
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
                 Product Type
               </th>
-              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Quantity
+              <th className="px-3 py-2 text-left text-xs font-semibold text-gray-600">
+                Qty.
               </th>
             </tr>
           </thead>
