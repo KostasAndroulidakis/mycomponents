@@ -1,14 +1,4 @@
-interface InventoryItem {
-  ID: string;
-  Image: string;
-  ManufacturerPartNumber: string;
-  Manufacturer: string;
-  Description: string;
-  Category: string;
-  Subcategory: string;
-  ProductType: string;
-  Quantity: string;
-}
+import { type InventoryItem } from "~/services/inventoryService";
 
 interface InventoryTableProps {
   inventory: InventoryItem[];

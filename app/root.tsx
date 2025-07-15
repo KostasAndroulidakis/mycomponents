@@ -8,8 +8,8 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { readFileSync } from "fs";
 import { TopBar } from "./components/TopBar";
+import { getInventoryCount } from "./services/inventoryService";
 
 import "./tailwind.css";
 
@@ -27,16 +27,8 @@ export const links: LinksFunction = () => [
 ];
 
 export async function loader() {
-  try {
-    const csvFilePath = "data/inventory.csv";
-    const csvData = readFileSync(csvFilePath, "utf-8");
-    const lines = csvData.split('\n').filter(line => line.trim());
-    // Subtract 1 for header row
-    const totalComponents = lines.length - 1;
-    return json({ totalComponents });
-  } catch (error) {
-    return json({ totalComponents: 0 });
-  }
+  const totalComponents = getInventoryCount();
+  return json({ totalComponents });
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
