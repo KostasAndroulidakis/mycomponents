@@ -1,11 +1,15 @@
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { SearchBar } from "./SearchBar";
 
-export function TopBar() {
+interface TopBarProps {
+  totalComponents?: number;
+}
+
+export function TopBar({ totalComponents }: TopBarProps) {
   return (
     <header className="bg-[#005F6A] shadow-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 gap-8">
           {/* Logo and Brand */}
           <div className="flex-shrink-0">
             <Link 
@@ -19,14 +23,16 @@ export function TopBar() {
             </Link>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex-1 max-w-lg mx-8">
+          {/* Search Bar - Now takes up more space */}
+          <div className="flex-1">
             <SearchBar className="w-full" />
           </div>
 
-          {/* Right side - could add user menu, notifications, etc. */}
+          {/* Total Components Count */}
           <div className="flex-shrink-0">
-            <div className="w-8 h-8"></div> {/* Placeholder for balance */}
+            <div className="text-white text-sm font-medium">
+              Total: {totalComponents?.toLocaleString() || '0'} components
+            </div>
           </div>
         </div>
       </div>
