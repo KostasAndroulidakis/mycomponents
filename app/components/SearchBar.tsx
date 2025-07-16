@@ -1,6 +1,7 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Form } from "@remix-run/react";
 import { DIMENSIONS } from "~/constants/dimensions";
+import { UI_TEXT } from "~/constants/ui-text";
 
 interface SearchBarProps {
   placeholder?: string;
@@ -9,7 +10,7 @@ interface SearchBarProps {
 }
 
 export function SearchBar({ 
-  placeholder = "Search components...", 
+  placeholder = UI_TEXT.ACTIONS.SEARCH_PLACEHOLDER, 
   defaultValue = "",
   className = ""
 }: SearchBarProps) {
@@ -21,7 +22,7 @@ export function SearchBar({
         </div>
         <input
           type="search"
-          name="q"
+          name={UI_TEXT.SEARCH_PARAMS.QUERY}
           className="block w-full pl-10 pr-3 py-2 border border-mouser-border-medium rounded-lg leading-5 bg-white placeholder-mouser-text-disabled focus:outline-none focus:placeholder-mouser-text-tertiary focus:ring-2 focus:ring-mouser-primary-light focus:border-mouser-primary-light transition duration-150 ease-in-out"
           placeholder={placeholder}
           defaultValue={defaultValue}

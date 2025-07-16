@@ -5,11 +5,12 @@ import { InventoryTable } from "~/components/InventoryTable";
 import { FilterMenu } from "~/components/FilterMenu";
 import { getInventoryData, type InventoryFilters } from "~/services/inventoryService";
 import { DIMENSIONS } from "~/constants/dimensions";
+import { UI_TEXT } from "~/constants/ui-text";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Components" },
-    { name: "description", content: "Electronic Components Inventory" },
+    { title: UI_TEXT.PAGE_METADATA.PAGE_TITLE },
+    { name: "description", content: UI_TEXT.PAGE_METADATA.PAGE_DESCRIPTION },
   ];
 };
 
@@ -20,19 +21,19 @@ export async function loader({ request }: LoaderFunctionArgs) {
   // Extract filters with proper null handling
   const filters: InventoryFilters = {};
   
-  const manufacturer = url.searchParams.get("manufacturer");
+  const manufacturer = url.searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER);
   if (manufacturer) filters.manufacturer = manufacturer;
   
-  const category = url.searchParams.get("category");
+  const category = url.searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY);
   if (category) filters.category = category;
   
-  const subcategory = url.searchParams.get("subcategory");
+  const subcategory = url.searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY);
   if (subcategory) filters.subcategory = subcategory;
   
-  const productType = url.searchParams.get("productType");
+  const productType = url.searchParams.get(UI_TEXT.SEARCH_PARAMS.PRODUCT_TYPE);
   if (productType) filters.productType = productType;
   
-  const searchQuery = url.searchParams.get("q");
+  const searchQuery = url.searchParams.get(UI_TEXT.SEARCH_PARAMS.QUERY);
   if (searchQuery) filters.searchQuery = searchQuery;
 
   const data = getInventoryData(filters);

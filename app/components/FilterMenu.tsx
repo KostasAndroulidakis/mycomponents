@@ -3,6 +3,7 @@ import { useSearchParams } from "@remix-run/react";
 import { FilterPanel } from "./FilterPanel";
 import { CATEGORIES } from "~/constants/categories";
 import { DIMENSIONS } from "~/constants/dimensions";
+import { UI_TEXT } from "~/constants/ui-text";
 import { createFilterHandler, clearAllFilters, hasActiveFilters } from "~/utils/filterUtils";
 
 interface FilterMenuProps {
@@ -13,10 +14,10 @@ interface FilterMenuProps {
 export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedManufacturer = searchParams.get("manufacturer") || "";
-  const selectedCategory = searchParams.get("category") || "";
-  const selectedSubcategory = searchParams.get("subcategory") || "";
-  const selectedProductType = searchParams.get("productType") || "";
+  const selectedManufacturer = searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER) || "";
+  const selectedCategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY) || "";
+  const selectedSubcategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY) || "";
+  const selectedProductType = searchParams.get(UI_TEXT.SEARCH_PARAMS.PRODUCT_TYPE) || "";
 
   // Get available categories
   const categories = useMemo(() =>
@@ -53,20 +54,20 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
     <div className="bg-white rounded-lg shadow-sm border border-mouser-border-light">
       <div className="px-4 py-3 border-b border-mouser-border-light bg-mouser-bg-light">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-mouser-text-primary">Applied Filters:</h2>
+          <h2 className="text-sm font-semibold text-mouser-text-primary">{UI_TEXT.LABELS.APPLIED_FILTERS}</h2>
           {hasFilters && (
             <div className="flex items-center gap-3">
               <button
                 onClick={handleClearAllFilters}
                 className="text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium transition-colors duration-150"
               >
-                Reset All
+                {UI_TEXT.ACTIONS.RESET_ALL}
               </button>
               <button
                 onClick={handleClearAllFilters}
                 className="px-3 py-1 bg-mouser-primary text-white text-xs font-medium rounded hover:bg-mouser-hover-blue transition-colors duration-150"
               >
-                Apply Filters
+                {UI_TEXT.ACTIONS.APPLY_FILTERS}
               </button>
             </div>
           )}
@@ -78,7 +79,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
             <div className={`flex flex-wrap ${DIMENSIONS.BADGE_GAPS}`}>
               {selectedManufacturer && (
                 <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
-                  Manufacturer: {selectedManufacturer}
+                  {UI_TEXT.FILTER_BADGES.MANUFACTURER} {selectedManufacturer}
                   <button
                     onClick={() => handleManufacturerClick(selectedManufacturer)}
                     className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
@@ -89,7 +90,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
               )}
               {selectedCategory && (
                 <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
-                  Category: {selectedCategory}
+                  {UI_TEXT.FILTER_BADGES.CATEGORY} {selectedCategory}
                   <button
                     onClick={() => handleCategoryClick(selectedCategory)}
                     className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
@@ -100,7 +101,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
               )}
               {selectedSubcategory && (
                 <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
-                  Subcategory: {selectedSubcategory}
+                  {UI_TEXT.FILTER_BADGES.SUBCATEGORY} {selectedSubcategory}
                   <button
                     onClick={() => handleSubcategoryClick(selectedSubcategory)}
                     className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
@@ -111,7 +112,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
               )}
               {selectedProductType && (
                 <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
-                  Product Type: {selectedProductType}
+                  {UI_TEXT.FILTER_BADGES.PRODUCT_TYPE} {selectedProductType}
                   <button
                     onClick={() => handleProductTypeClick(selectedProductType)}
                     className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
@@ -129,7 +130,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${DIMENSIONS.FILTER_GRID_GAPS}`}>
           {/* Manufacturer Filter */}
           <FilterPanel
-            title="Manufacturer"
+            title={UI_TEXT.FILTER_PANELS.MANUFACTURER}
             items={manufacturers}
             selectedItems={selectedManufacturer ? [selectedManufacturer] : []}
             onItemClick={handleManufacturerClick}
@@ -137,7 +138,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
 
           {/* Category Filter */}
           <FilterPanel
-            title="Category"
+            title={UI_TEXT.FILTER_PANELS.CATEGORY}
             items={categories}
             selectedItems={selectedCategory ? [selectedCategory] : []}
             onItemClick={handleCategoryClick}
@@ -145,7 +146,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
 
           {/* Subcategory Filter */}
           <FilterPanel
-            title="Subcategory"
+            title={UI_TEXT.FILTER_PANELS.SUBCATEGORY}
             items={subcategories}
             selectedItems={selectedSubcategory ? [selectedSubcategory] : []}
             onItemClick={handleSubcategoryClick}
@@ -154,7 +155,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
 
           {/* Product Type Filter */}
           <FilterPanel
-            title="Product Type"
+            title={UI_TEXT.FILTER_PANELS.PRODUCT_TYPE}
             items={productTypes}
             selectedItems={selectedProductType ? [selectedProductType] : []}
             onItemClick={handleProductTypeClick}

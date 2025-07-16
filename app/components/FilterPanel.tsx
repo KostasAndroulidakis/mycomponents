@@ -1,4 +1,5 @@
 import { DIMENSIONS } from "~/constants/dimensions";
+import { UI_TEXT } from "~/constants/ui-text";
 
 interface FilterPanelProps {
   title: string;
@@ -23,11 +24,11 @@ export function FilterPanel({
       <div className={`${DIMENSIONS.FILTER_PANEL_MAX_HEIGHT} overflow-y-auto`}>
         {isLoading ? (
           <div className="px-3 py-4 text-center text-xs text-mouser-text-disabled">
-            Loading...
+            {UI_TEXT.STATUS_MESSAGES.LOADING}
           </div>
         ) : items.length === 0 ? (
           <div className="px-3 py-4 text-center text-xs text-mouser-text-disabled">
-            No items available
+            {UI_TEXT.STATUS_MESSAGES.NO_ITEMS_AVAILABLE}
           </div>
         ) : (
           <ul className="divide-y divide-mouser-border-light">

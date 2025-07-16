@@ -2,6 +2,7 @@ import { Link } from "@remix-run/react";
 import { SearchBar } from "./SearchBar";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { PATHS } from "~/constants/paths";
+import { UI_TEXT } from "~/constants/ui-text";
 
 interface TopBarProps {
   totalComponents?: number;
@@ -19,9 +20,9 @@ export function TopBar({ totalComponents }: TopBarProps) {
               className="flex items-center space-x-2 text-xl font-bold text-white hover:text-mouser-text-white-hover transition-colors duration-200"
             >
               <div className={`${DIMENSIONS.LOGO_SIZE} bg-mouser-orange rounded-lg flex items-center justify-center`}>
-                <span className="text-white font-bold text-sm">MC</span>
+                <span className="text-white font-bold text-sm">{UI_TEXT.BRAND.LOGO_ABBREVIATION}</span>
               </div>
-              <span>MyComponents</span>
+              <span>{UI_TEXT.BRAND.BRAND_NAME}</span>
             </Link>
           </div>
 
@@ -33,7 +34,7 @@ export function TopBar({ totalComponents }: TopBarProps) {
           {/* Total Components Count */}
           <div className="flex-shrink-0">
             <div className="text-white text-sm font-medium">
-              Total: {totalComponents?.toLocaleString() || '0'} components
+              {UI_TEXT.LABELS.TOTAL} {totalComponents?.toLocaleString() || UI_TEXT.DEFAULTS.COUNT_FALLBACK} {UI_TEXT.LABELS.COMPONENTS}
             </div>
           </div>
         </div>
