@@ -1,5 +1,5 @@
-import { readFileSync } from "fs";
 import { PATHS } from "~/constants/paths";
+import { parseCSVFile, parseCSVLine, validateCSVRow, getCSVValue, CSV_FIELD_INDICES, CSV_CONFIG } from "~/utils/csvUtils";
 
 export interface InventoryItem {
   ID: string;
@@ -27,54 +27,30 @@ export interface InventoryData {
   totalCount: number;
 }
 
-/**
- * Parses a CSV line handling quoted fields properly
- */
-function parseCSVLine(line: string): string[] {
-  const values = [];
-  let current = '';
-  let inQuotes = false;
-
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i];
-    if (char === '"') {
-      inQuotes = !inQuotes;
-    } else if (char === ',' && !inQuotes) {
-      values.push(current);
-      current = '';
-    } else {
-      current += char;
-    }
-  }
-  values.push(current);
-  return values;
-}
 
 /**
  * Loads and parses the inventory CSV file
  */
 export function loadInventoryData(): InventoryItem[] {
   try {
-    const csvData = readFileSync(PATHS.INVENTORY_CSV, "utf-8");
-    const lines = csvData.split('\n').filter(line => line.trim());
-    
+    const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
     const results: InventoryItem[] = [];
 
-    // Skip header row (index 0)
-    for (let i = 1; i < lines.length; i++) {
-      const values = parseCSVLine(lines[i]);
+    // Skip header row, start from data rows
+    for (let i = CSV_CONFIG.DATA_START_INDEX; i < csvResult.lines.length; i++) {
+      const values = parseCSVLine(csvResult.lines[i]);
 
-      if (values.length >= 9) {
+      if (validateCSVRow(values)) {
         const item: InventoryItem = {
-          ID: values[0]?.trim() || '',
-          Image: values[1]?.trim() || '',
-          ManufacturerPartNumber: values[2]?.trim() || '',
-          Manufacturer: values[3]?.trim() || '',
-          Description: values[4]?.trim() || '',
-          Category: values[5]?.trim() || '',
-          Subcategory: values[6]?.trim() || '',
-          ProductType: values[7]?.trim() || '',
-          Quantity: values[8]?.trim() || '',
+          ID: getCSVValue(values, CSV_FIELD_INDICES.ID),
+          Image: getCSVValue(values, CSV_FIELD_INDICES.IMAGE),
+          ManufacturerPartNumber: getCSVValue(values, CSV_FIELD_INDICES.MANUFACTURER_PART_NUMBER),
+          Manufacturer: getCSVValue(values, CSV_FIELD_INDICES.MANUFACTURER),
+          Description: getCSVValue(values, CSV_FIELD_INDICES.DESCRIPTION),
+          Category: getCSVValue(values, CSV_FIELD_INDICES.CATEGORY),
+          Subcategory: getCSVValue(values, CSV_FIELD_INDICES.SUBCATEGORY),
+          ProductType: getCSVValue(values, CSV_FIELD_INDICES.PRODUCT_TYPE),
+          Quantity: getCSVValue(values, CSV_FIELD_INDICES.QUANTITY),
         };
         results.push(item);
       }
@@ -92,10 +68,8 @@ export function loadInventoryData(): InventoryItem[] {
  */
 export function getInventoryCount(): number {
   try {
-    const csvData = readFileSync(PATHS.INVENTORY_CSV, "utf-8");
-    const lines = csvData.split('\n').filter(line => line.trim());
-    // Subtract 1 for header row
-    return lines.length - 1;
+    const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
+    return csvResult.dataRowCount;
   } catch (error) {
     console.error('Error getting inventory count:', error);
     return 0;
