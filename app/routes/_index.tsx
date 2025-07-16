@@ -16,16 +16,30 @@ export const meta: MetaFunction = () => {
 export async function loader({ request }: LoaderFunctionArgs) {
   // Get search params for filtering
   const url = new URL(request.url);
-  const filters: InventoryFilters = {
-    manufacturer: url.searchParams.get("manufacturer") || undefined,
-    category: url.searchParams.get("category") || undefined,
-    subcategory: url.searchParams.get("subcategory") || undefined,
-    productType: url.searchParams.get("productType") || undefined,
-    searchQuery: url.searchParams.get("q") || undefined,
-  };
+  
+  // Extract filters with proper null handling
+  const filters: InventoryFilters = {};
+  
+  const manufacturer = url.searchParams.get("manufacturer");
+  if (manufacturer) filters.manufacturer = manufacturer;
+  
+  const category = url.searchParams.get("category");
+  if (category) filters.category = category;
+  
+  const subcategory = url.searchParams.get("subcategory");
+  if (subcategory) filters.subcategory = subcategory;
+  
+  const productType = url.searchParams.get("productType");
+  if (productType) filters.productType = productType;
+  
+  const searchQuery = url.searchParams.get("q");
+  if (searchQuery) filters.searchQuery = searchQuery;
 
   const data = getInventoryData(filters);
-  return json({ inventory: data.inventory, manufacturers: data.manufacturers });
+  return json({ 
+    inventory: data.inventory, 
+    manufacturers: data.manufacturers 
+  });
 }
 
 export default function Index() {

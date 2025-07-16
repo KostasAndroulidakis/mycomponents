@@ -163,13 +163,22 @@ export function extractManufacturers(items: InventoryItem[]): string[] {
  * Main service function to get filtered inventory data
  */
 export function getInventoryData(filters: InventoryFilters = {}): InventoryData {
-  const allItems = loadInventoryData();
-  const manufacturers = extractManufacturers(allItems);
-  const filteredItems = filterInventory(allItems, filters);
+  try {
+    const allItems = loadInventoryData();
+    const manufacturers = extractManufacturers(allItems);
+    const filteredItems = filterInventory(allItems, filters);
 
-  return {
-    inventory: filteredItems,
-    manufacturers,
-    totalCount: allItems.length
-  };
+    return {
+      inventory: filteredItems,
+      manufacturers,
+      totalCount: allItems.length
+    };
+  } catch (error) {
+    console.error('Error in getInventoryData:', error);
+    return {
+      inventory: [],
+      manufacturers: [],
+      totalCount: 0
+    };
+  }
 }

@@ -1,9 +1,37 @@
+import { useState } from "react";
 import { type InventoryItem } from "~/services/inventoryService";
 import { PATHS } from "~/constants/paths";
 import { DIMENSIONS } from "~/constants/dimensions";
 
 interface InventoryTableProps {
   inventory: InventoryItem[];
+}
+
+function ComponentImage({ item }: { item: InventoryItem }) {
+  const [hasError, setHasError] = useState(false);
+
+  const handleImageError = () => {
+    setHasError(true);
+  };
+
+  if (!item.Image || hasError) {
+    return (
+      <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
+        <span className="text-xs text-mouser-text-disabled">No Image</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
+      <img
+        src={`${PATHS.COMPONENT_IMAGES}${item.Image}`}
+        alt={item.Description}
+        className={`${DIMENSIONS.COMPONENT_IMAGE_SIZE} object-cover rounded`}
+        onError={handleImageError}
+      />
+    </div>
+  );
 }
 
 export function InventoryTable({ inventory }: InventoryTableProps) {
@@ -49,27 +77,10 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-mouser-border-light">
-            {inventory.map((item, index) => (
-              <tr key={index} className="hover:bg-mouser-hover-gray transition-colors duration-150">
+            {inventory.map((item) => (
+              <tr key={item.ID} className="hover:bg-mouser-hover-gray transition-colors duration-150">
                 <td className="px-3 py-2 whitespace-nowrap">
-                  {item.Image ? (
-                    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
-                      <img
-                        src={`${PATHS.COMPONENT_IMAGES}${item.Image}`}
-                        alt={item.Description}
-                        className={`${DIMENSIONS.COMPONENT_IMAGE_SIZE} object-cover rounded`}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          target.parentElement!.innerHTML = '<span class="text-xs text-mouser-text-disabled">No Image</span>';
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
-                      <span className="text-xs text-mouser-text-disabled">No Image</span>
-                    </div>
-                  )}
+                  <ComponentImage item={item} />
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap text-xs text-mouser-text-primary font-medium">
                   {item.ManufacturerPartNumber}
