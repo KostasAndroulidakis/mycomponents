@@ -17,28 +17,28 @@ export function FilterPanel({
   isLoading = false 
 }: FilterPanelProps) {
   return (
-    <div className="bg-white border border-mouser-border-light rounded">
-      <div className="bg-mouser-bg-light px-3 py-2 border-b border-mouser-border-light">
-        <h3 className="text-xs font-semibold text-mouser-text-secondary uppercase tracking-wide">{title}</h3>
+    <div className={`bg-white border ${DIMENSIONS.BORDER_LIGHT} rounded`}>
+      <div className={`${DIMENSIONS.BG_LIGHT} ${DIMENSIONS.CELL_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT}`}>
+        <h3 className={`${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary uppercase tracking-wide`}>{title}</h3>
       </div>
       <div className={`${DIMENSIONS.FILTER_PANEL_MAX_HEIGHT} overflow-y-auto`}>
         {isLoading ? (
-          <div className="px-3 py-4 text-center text-xs text-mouser-text-disabled">
+          <div className={`${DIMENSIONS.SECTION_PADDING} text-center text-xs text-mouser-text-disabled`}>
             {UI_TEXT.STATUS_MESSAGES.LOADING}
           </div>
         ) : items.length === 0 ? (
-          <div className="px-3 py-4 text-center text-xs text-mouser-text-disabled">
+          <div className={`${DIMENSIONS.SECTION_PADDING} text-center text-xs text-mouser-text-disabled`}>
             {UI_TEXT.STATUS_MESSAGES.NO_ITEMS_AVAILABLE}
           </div>
         ) : (
-          <ul className="divide-y divide-mouser-border-light">
+          <ul className={`divide-y ${DIMENSIONS.BORDER_LIGHT}`}>
             {items.map((item) => {
               const isSelected = selectedItems.includes(item);
               return (
                 <li key={item}>
                   <button
                     onClick={() => onItemClick(item)}
-                    className={`w-full text-left px-3 py-2 text-xs transition-colors duration-150 
+                    className={`w-full text-left ${DIMENSIONS.CELL_PADDING} text-xs ${DIMENSIONS.TRANSITION_COLORS} 
                       ${isSelected 
                         ? 'bg-mouser-filter-badge-bg text-mouser-primary font-medium hover:bg-mouser-filter-badge-hover-bg' 
                         : 'text-mouser-text-tertiary hover:bg-mouser-hover-gray'

@@ -51,21 +51,21 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
   const hasFilters = hasActiveFilters(searchParams);
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-mouser-border-light">
-      <div className="px-4 py-3 border-b border-mouser-border-light bg-mouser-bg-light">
+    <div className={DIMENSIONS.CONTAINER_CARD}>
+      <div className={`${DIMENSIONS.HEADER_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold text-mouser-text-primary">{UI_TEXT.LABELS.APPLIED_FILTERS}</h2>
           {hasFilters && (
             <div className="flex items-center gap-3">
               <button
                 onClick={handleClearAllFilters}
-                className="text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium transition-colors duration-150"
+                className={`text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium ${DIMENSIONS.TRANSITION_COLORS}`}
               >
                 {UI_TEXT.ACTIONS.RESET_ALL}
               </button>
               <button
                 onClick={handleClearAllFilters}
-                className="px-3 py-1 bg-mouser-primary text-white text-xs font-medium rounded hover:bg-mouser-hover-blue transition-colors duration-150"
+                className={`${DIMENSIONS.BUTTON_PADDING} bg-mouser-primary text-white ${DIMENSIONS.LABEL_TEXT_MEDIUM} rounded hover:bg-mouser-hover-blue ${DIMENSIONS.TRANSITION_COLORS}`}
               >
                 {UI_TEXT.ACTIONS.APPLY_FILTERS}
               </button>
@@ -78,7 +78,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
           <div className="mt-2">
             <div className={`flex flex-wrap ${DIMENSIONS.BADGE_GAPS}`}>
               {selectedManufacturer && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
+                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
                   {UI_TEXT.FILTER_BADGES.MANUFACTURER} {selectedManufacturer}
                   <button
                     onClick={() => handleManufacturerClick(selectedManufacturer)}
@@ -89,7 +89,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                 </span>
               )}
               {selectedCategory && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
+                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
                   {UI_TEXT.FILTER_BADGES.CATEGORY} {selectedCategory}
                   <button
                     onClick={() => handleCategoryClick(selectedCategory)}
@@ -100,7 +100,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                 </span>
               )}
               {selectedSubcategory && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
+                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
                   {UI_TEXT.FILTER_BADGES.SUBCATEGORY} {selectedSubcategory}
                   <button
                     onClick={() => handleSubcategoryClick(selectedSubcategory)}
@@ -111,7 +111,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                 </span>
               )}
               {selectedProductType && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
+                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
                   {UI_TEXT.FILTER_BADGES.PRODUCT_TYPE} {selectedProductType}
                   <button
                     onClick={() => handleProductTypeClick(selectedProductType)}

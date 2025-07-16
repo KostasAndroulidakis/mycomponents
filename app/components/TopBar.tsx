@@ -10,7 +10,7 @@ interface TopBarProps {
 
 export function TopBar({ totalComponents }: TopBarProps) {
   return (
-    <header className="bg-mouser-primary shadow-sm border-b border-mouser-border-light">
+    <header className={`bg-mouser-primary ${DIMENSIONS.SHADOW_SM} border-b ${DIMENSIONS.BORDER_LIGHT}`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between ${DIMENSIONS.HEADER_HEIGHT} ${DIMENSIONS.HEADER_GAPS}`}>
           {/* Logo and Brand */}

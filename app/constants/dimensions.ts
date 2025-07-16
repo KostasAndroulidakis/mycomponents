@@ -29,6 +29,30 @@ export const DIMENSIONS = {
   FILTER_GRID_GAPS: "gap-4",
   BADGE_GAPS: "gap-2",
   HEADER_GAPS: "gap-8",
+  
+  // Common padding patterns
+  CELL_PADDING: "px-3 py-2",
+  HEADER_PADDING: "px-4 py-3",
+  BADGE_PADDING: "px-2 py-1",
+  SECTION_PADDING: "px-3 py-4",
+  BUTTON_PADDING: "px-3 py-1",
+  
+  // Text styles
+  LABEL_TEXT_SEMIBOLD: "text-xs font-semibold",
+  LABEL_TEXT_MEDIUM: "text-xs font-medium",
+  
+  // Visual effects
+  TRANSITION_COLORS: "transition-colors duration-150",
+  SHADOW_SM: "shadow-sm",
+  
+  // Border patterns
+  BORDER_LIGHT: "border-mouser-border-light",
+  
+  // Background patterns
+  BG_LIGHT: "bg-mouser-bg-light",
+  
+  // Container patterns
+  CONTAINER_CARD: "bg-white rounded-lg shadow-sm border border-mouser-border-light",
 } as const;
 
 export type DimensionKey = keyof typeof DIMENSIONS;
