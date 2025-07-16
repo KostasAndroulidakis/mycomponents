@@ -3,6 +3,7 @@ import { useSearchParams } from "@remix-run/react";
 import { FilterPanel } from "./FilterPanel";
 import { CATEGORIES } from "~/constants/categories";
 import { DIMENSIONS } from "~/constants/dimensions";
+import { createFilterHandler, clearAllFilters, hasActiveFilters } from "~/utils/filterUtils";
 
 interface FilterMenuProps {
   className?: string;
@@ -39,100 +40,30 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
     return subcategory ? subcategory.productTypes : [];
   }, [selectedCategory, selectedSubcategory]);
 
-  const handleManufacturerClick = (manufacturer: string) => {
-    const newParams = new URLSearchParams(searchParams);
+  const handleManufacturerClick = createFilterHandler("manufacturer", selectedManufacturer, searchParams, setSearchParams);
+  const handleCategoryClick = createFilterHandler("category", selectedCategory, searchParams, setSearchParams);
+  const handleSubcategoryClick = createFilterHandler("subcategory", selectedSubcategory, searchParams, setSearchParams);
+  const handleProductTypeClick = createFilterHandler("productType", selectedProductType, searchParams, setSearchParams);
 
-    if (selectedManufacturer === manufacturer) {
-      // Deselect manufacturer and clear all downstream selections
-      newParams.delete("manufacturer");
-      newParams.delete("category");
-      newParams.delete("subcategory");
-      newParams.delete("productType");
-    } else {
-      // Select new manufacturer and clear downstream selections
-      newParams.set("manufacturer", manufacturer);
-      newParams.delete("category");
-      newParams.delete("subcategory");
-      newParams.delete("productType");
-    }
+  const handleClearAllFilters = () => clearAllFilters(searchParams, setSearchParams);
 
-    setSearchParams(newParams);
-  };
-
-  const handleCategoryClick = (category: string) => {
-    const newParams = new URLSearchParams(searchParams);
-
-    if (selectedCategory === category) {
-      // Deselect category and clear all downstream selections
-      newParams.delete("category");
-      newParams.delete("subcategory");
-      newParams.delete("productType");
-    } else {
-      // Select new category and clear downstream selections
-      newParams.set("category", category);
-      newParams.delete("subcategory");
-      newParams.delete("productType");
-    }
-
-    setSearchParams(newParams);
-  };
-
-  const handleSubcategoryClick = (subcategory: string) => {
-    const newParams = new URLSearchParams(searchParams);
-
-    if (selectedSubcategory === subcategory) {
-      // Deselect subcategory and clear downstream selections
-      newParams.delete("subcategory");
-      newParams.delete("productType");
-    } else {
-      // Select new subcategory and clear downstream selections
-      newParams.set("subcategory", subcategory);
-      newParams.delete("productType");
-    }
-
-    setSearchParams(newParams);
-  };
-
-  const handleProductTypeClick = (productType: string) => {
-    const newParams = new URLSearchParams(searchParams);
-
-    if (selectedProductType === productType) {
-      // Deselect product type
-      newParams.delete("productType");
-    } else {
-      // Select new product type
-      newParams.set("productType", productType);
-    }
-
-    setSearchParams(newParams);
-  };
-
-  const clearAllFilters = () => {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.delete("manufacturer");
-    newParams.delete("category");
-    newParams.delete("subcategory");
-    newParams.delete("productType");
-    setSearchParams(newParams);
-  };
-
-  const hasActiveFilters = selectedManufacturer || selectedCategory || selectedSubcategory || selectedProductType;
+  const hasFilters = hasActiveFilters(searchParams);
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-mouser-border-light">
       <div className="px-4 py-3 border-b border-mouser-border-light bg-mouser-bg-light">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold text-mouser-text-primary">Applied Filters:</h2>
-          {hasActiveFilters && (
+          {hasFilters && (
             <div className="flex items-center gap-3">
               <button
-                onClick={clearAllFilters}
+                onClick={handleClearAllFilters}
                 className="text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium transition-colors duration-150"
               >
                 Reset All
               </button>
               <button
-                onClick={clearAllFilters}
+                onClick={handleClearAllFilters}
                 className="px-3 py-1 bg-mouser-primary text-white text-xs font-medium rounded hover:bg-mouser-hover-blue transition-colors duration-150"
               >
                 Apply Filters
@@ -142,7 +73,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
         </div>
 
         {/* Active Filters Summary */}
-        {hasActiveFilters && (
+        {hasFilters && (
           <div className="mt-2">
             <div className={`flex flex-wrap ${DIMENSIONS.BADGE_GAPS}`}>
               {selectedManufacturer && (
