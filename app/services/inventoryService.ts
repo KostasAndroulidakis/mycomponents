@@ -2,35 +2,62 @@ import { PATHS } from "~/constants/paths";
 import { CONFIG } from "~/constants/config";
 import { parseCSVFile, parseCSVLine, validateCSVRow, getCSVValue, CSV_FIELD_INDICES } from "~/utils/csvUtils";
 
+/**
+ * Represents a single inventory item with all its properties
+ */
 export interface InventoryItem {
+  /** Unique identifier for the inventory item */
   ID: string;
+  /** Filename of the component image */
   Image: string;
+  /** Manufacturer's part number */
   ManufacturerPartNumber: string;
+  /** Component manufacturer name */
   Manufacturer: string;
+  /** Detailed description of the component */
   Description: string;
+  /** Main category classification */
   Category: string;
+  /** Subcategory classification */
   Subcategory: string;
+  /** Specific product type */
   ProductType: string;
+  /** Available quantity as string */
   Quantity: string;
 }
 
+/**
+ * Filter criteria for inventory searches
+ */
 export interface InventoryFilters {
+  /** Filter by manufacturer name */
   manufacturer?: string;
+  /** Filter by category */
   category?: string;
+  /** Filter by subcategory */
   subcategory?: string;
+  /** Filter by product type */
   productType?: string;
+  /** Text search query */
   searchQuery?: string;
 }
 
+/**
+ * Complete inventory data structure with metadata
+ */
 export interface InventoryData {
+  /** Filtered inventory items */
   inventory: InventoryItem[];
+  /** List of all available manufacturers */
   manufacturers: string[];
+  /** Total count of all inventory items */
   totalCount: number;
 }
 
 
 /**
  * Loads and parses the inventory CSV file
+ * @returns Array of inventory items parsed from CSV
  */
 export function loadInventoryData(): InventoryItem[] {
   try {
@@ -66,6 +93,7 @@ export function loadInventoryData(): InventoryItem[] {
 
 /**
  * Gets the total count of inventory items
+ * @returns Total number of inventory items in the CSV file
  */
 export function getInventoryCount(): number {
   try {
@@ -79,6 +107,9 @@ export function getInventoryCount(): number {
 
 /**
  * Filters inventory items based on provided filters
+ * @param items Array of inventory items to filter
+ * @param filters Filter criteria to apply
+ * @returns Filtered array of inventory items
  */
 export function filterInventory(items: InventoryItem[], filters: InventoryFilters): InventoryItem[] {
   let results = [...items];
@@ -121,6 +152,8 @@ export function filterInventory(items: InventoryItem[], filters: InventoryFilter
 
 /**
  * Extracts unique manufacturers from inventory items
+ * @param items Array of inventory items
+ * @returns Sorted array of unique manufacturer names
  */
 export function extractManufacturers(items: InventoryItem[]): string[] {
   const manufacturersSet = new Set<string>();
@@ -136,6 +169,8 @@ export function extractManufacturers(items: InventoryItem[]): string[] {
 
 /**
  * Main service function to get filtered inventory data
+ * @param filters Optional filter criteria to apply
+ * @returns Complete inventory data with filtered items and metadata
  */
 export function getInventoryData(filters: InventoryFilters = {}): InventoryData {
   try {

@@ -6,11 +6,20 @@ import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 import { createFilterHandler, clearAllFilters, hasActiveFilters } from "~/utils/filterUtils";
 
+/**
+ * Props for the FilterMenu component
+ */
 interface FilterMenuProps {
+  /** Additional CSS classes to apply */
   className?: string;
+  /** Array of available manufacturers for filtering */
   manufacturers?: string[];
 }
 
+/**
+ * Main filter menu component with hierarchical filtering capabilities
+ * Manages manufacturer, category, subcategory, and product type filters
+ */
 export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
   const [searchParams, setSearchParams] = useSearchParams();
 

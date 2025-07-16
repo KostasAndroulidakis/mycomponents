@@ -7,6 +7,9 @@ import { getInventoryData, type InventoryFilters } from "~/services/inventorySer
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 
+/**
+ * Meta function to set page title and description
+ */
 export const meta: MetaFunction = () => {
   return [
     { title: UI_TEXT.PAGE_METADATA.PAGE_TITLE },
@@ -14,6 +17,11 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+/**
+ * Loader function to fetch inventory data with filters from URL parameters
+ * @param request HTTP request object containing URL search parameters
+ * @returns JSON response with filtered inventory data and manufacturers
+ */
 export async function loader({ request }: LoaderFunctionArgs) {
   // Get search params for filtering
   const url = new URL(request.url);
@@ -43,6 +51,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
   });
 }
 
+/**
+ * Main index page component displaying inventory with filtering capabilities
+ * @returns JSX component with filter menu and inventory table
+ */
 export default function Index() {
   const { inventory, manufacturers } = useLoaderData<typeof loader>();
 

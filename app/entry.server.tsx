@@ -13,6 +13,15 @@ import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { CONFIG } from "~/constants/config";
 
+/**
+ * Main request handler that determines whether to use bot or browser rendering
+ * @param request HTTP request object
+ * @param responseStatusCode HTTP status code
+ * @param responseHeaders HTTP response headers
+ * @param remixContext Remix context for server-side rendering
+ * @param loadContext App load context (unused but kept for template compatibility)
+ * @returns Promise resolving to HTTP Response
+ */
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
@@ -38,6 +47,14 @@ export default function handleRequest(
       );
 }
 
+/**
+ * Handles server-side rendering for bot requests with full content ready
+ * @param request HTTP request object
+ * @param responseStatusCode HTTP status code
+ * @param responseHeaders HTTP response headers
+ * @param remixContext Remix context for server-side rendering
+ * @returns Promise resolving to HTTP Response
+ */
 function handleBotRequest(
   request: Request,
   responseStatusCode: number,
@@ -88,6 +105,14 @@ function handleBotRequest(
   });
 }
 
+/**
+ * Handles server-side rendering for browser requests with shell-ready streaming
+ * @param request HTTP request object
+ * @param responseStatusCode HTTP status code
+ * @param responseHeaders HTTP response headers
+ * @param remixContext Remix context for server-side rendering
+ * @returns Promise resolving to HTTP Response
+ */
 function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,

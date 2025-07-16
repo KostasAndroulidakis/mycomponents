@@ -3,12 +3,22 @@ import { Form } from "@remix-run/react";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 
+/**
+ * Props for the SearchBar component
+ */
 interface SearchBarProps {
+  /** Placeholder text for the search input */
   placeholder?: string;
+  /** Default value for the search input */
   defaultValue?: string;
+  /** Additional CSS classes to apply */
   className?: string;
 }
 
+/**
+ * Search input component with magnifying glass icon
+ * Integrates with Remix forms for server-side search handling
+ */
 export function SearchBar({ 
   placeholder = UI_TEXT.ACTIONS.SEARCH_PLACEHOLDER, 
   defaultValue = "",

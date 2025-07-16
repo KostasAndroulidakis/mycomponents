@@ -4,10 +4,18 @@ import { PATHS } from "~/constants/paths";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 
+/**
+ * Props for the InventoryTable component
+ */
 interface InventoryTableProps {
+  /** Array of inventory items to display */
   inventory: InventoryItem[];
 }
 
+/**
+ * Component image display with error handling
+ * Shows placeholder when image fails to load
+ */
 function ComponentImage({ item }: { item: InventoryItem }) {
   const [hasError, setHasError] = useState(false);
 
@@ -35,6 +43,10 @@ function ComponentImage({ item }: { item: InventoryItem }) {
   );
 }
 
+/**
+ * Data table component for displaying inventory items
+ * Features responsive design with hover effects and empty state handling
+ */
 export function InventoryTable({ inventory }: InventoryTableProps) {
   return (
     <div className={`${DIMENSIONS.CONTAINER_CARD} overflow-hidden`}>

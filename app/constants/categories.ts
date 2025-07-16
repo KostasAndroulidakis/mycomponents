@@ -1,13 +1,27 @@
+/**
+ * Represents a product category with its subcategories
+ */
 export interface Category {
+  /** Display name of the category */
   name: string;
+  /** Array of subcategories within this category */
   subcategories: Subcategory[];
 }
 
+/**
+ * Represents a subcategory with its product types
+ */
 export interface Subcategory {
+  /** Display name of the subcategory */
   name: string;
+  /** Array of product types within this subcategory */
   productTypes: string[];
 }
 
+/**
+ * Complete hierarchical structure of component categories
+ * Used for filtering and organizing inventory items
+ */
 export const CATEGORIES: Category[] = [
   {
     name: "Semiconductors",

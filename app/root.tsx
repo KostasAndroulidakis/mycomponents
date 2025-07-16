@@ -14,6 +14,9 @@ import { CONFIG } from "~/constants/config";
 
 import "./tailwind.css";
 
+/**
+ * Links function to define external stylesheet and font preconnections
+ */
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: CONFIG.EXTERNAL_URLS.GOOGLE_FONTS_PRECONNECT },
   {
@@ -27,11 +30,19 @@ export const links: LinksFunction = () => [
   },
 ];
 
+/**
+ * Root loader function to fetch total inventory count
+ * @returns JSON response with total component count
+ */
 export async function loader() {
   const totalComponents = getInventoryCount();
   return json({ totalComponents });
 }
 
+/**
+ * Root layout component that wraps all pages with HTML structure
+ * @param children React children to render within the layout
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={CONFIG.META.HTML_LANG} className={CONFIG.DEFAULTS.SCROLL_BEHAVIOR}>
@@ -50,6 +61,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * Root App component that provides the main application structure
+ * @returns JSX component with header, main content area, and navigation
+ */
 export default function App() {
   const { totalComponents } = useLoaderData<typeof loader>();
 

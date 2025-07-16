@@ -4,10 +4,18 @@ import { DIMENSIONS } from "~/constants/dimensions";
 import { PATHS } from "~/constants/paths";
 import { UI_TEXT } from "~/constants/ui-text";
 
+/**
+ * Props for the TopBar component
+ */
 interface TopBarProps {
+  /** Total number of components to display in the header */
   totalComponents?: number;
 }
 
+/**
+ * Main application header with branding, search, and component count
+ * Features responsive design with Mouser-inspired styling
+ */
 export function TopBar({ totalComponents }: TopBarProps) {
   return (
     <header className={`bg-mouser-primary ${DIMENSIONS.SHADOW_SM} border-b ${DIMENSIONS.BORDER_LIGHT}`}>

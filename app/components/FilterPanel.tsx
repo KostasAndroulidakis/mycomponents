@@ -1,14 +1,26 @@
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 
+/**
+ * Props for the FilterPanel component
+ */
 interface FilterPanelProps {
+  /** Title displayed in the panel header */
   title: string;
+  /** Array of items to display in the filter list */
   items: string[];
+  /** Array of currently selected items */
   selectedItems: string[];
+  /** Callback function when an item is clicked */
   onItemClick: (item: string) => void;
+  /** Whether the panel is in loading state */
   isLoading?: boolean;
 }
 
+/**
+ * Reusable filter panel component with scrollable item list
+ * Displays selectable items with visual selection indicators
+ */
 export function FilterPanel({ 
   title, 
   items, 
