@@ -39,7 +39,7 @@ export function FilterPanel({
                     onClick={() => onItemClick(item)}
                     className={`w-full text-left px-3 py-2 text-xs transition-colors duration-150 
                       ${isSelected 
-                        ? 'bg-blue-50 text-mouser-primary font-medium hover:bg-blue-100' 
+                        ? 'bg-mouser-filter-badge-bg text-mouser-primary font-medium hover:bg-mouser-filter-badge-hover-bg' 
                         : 'text-mouser-text-tertiary hover:bg-mouser-hover-gray'
                       }`}
                   >

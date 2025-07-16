@@ -16,7 +16,7 @@ export function TopBar({ totalComponents }: TopBarProps) {
           <div className="flex-shrink-0">
             <Link
               to={PATHS.HOME}
-              className="flex items-center space-x-2 text-xl font-bold text-white hover:text-gray-200 transition-colors duration-200"
+              className="flex items-center space-x-2 text-xl font-bold text-white hover:text-mouser-text-white-hover transition-colors duration-200"
             >
               <div className={`${DIMENSIONS.LOGO_SIZE} bg-mouser-orange rounded-lg flex items-center justify-center`}>
                 <span className="text-white font-bold text-sm">MC</span>

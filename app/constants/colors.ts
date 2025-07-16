@@ -27,6 +27,7 @@ export const colors = {
     tertiary: '#757575',
     disabled: '#999999',
     white: '#FFFFFF',
+    whiteHover: '#E5E5E5', // gray-200 equivalent
   },
 
   // Border Colors
@@ -60,6 +61,9 @@ export const colors = {
     tableHeaderBg: '#F5F5F5',
     badgeBg: '#E3F2FD',
     badgeText: '#1565C0',
+    quantityBg: '#E8F5E9', // green-100 equivalent
+    filterBadgeBg: '#E3F2FD', // blue-50 equivalent
+    filterBadgeHoverBg: '#BBDEFB', // blue-100 equivalent
   },
 } as const;
 

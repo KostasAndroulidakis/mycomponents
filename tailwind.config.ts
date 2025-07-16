@@ -24,6 +24,7 @@ export default {
           'text-secondary': colors.text.secondary,
           'text-tertiary': colors.text.tertiary,
           'text-disabled': colors.text.disabled,
+          'text-white-hover': colors.text.whiteHover,
           
           // Borders
           'border-light': colors.border.light,
@@ -40,6 +41,11 @@ export default {
           error: colors.status.error,
           warning: colors.status.warning,
           info: colors.status.info,
+          
+          // Component colors
+          'quantity-bg': colors.components.quantityBg,
+          'filter-badge-bg': colors.components.filterBadgeBg,
+          'filter-badge-hover-bg': colors.components.filterBadgeHoverBg,
         },
       },
       fontFamily: {

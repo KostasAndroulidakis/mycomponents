@@ -146,7 +146,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
           <div className="mt-2">
             <div className={`flex flex-wrap ${DIMENSIONS.BADGE_GAPS}`}>
               {selectedManufacturer && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-mouser-primary">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
                   Manufacturer: {selectedManufacturer}
                   <button
                     onClick={() => handleManufacturerClick(selectedManufacturer)}
@@ -157,7 +157,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                 </span>
               )}
               {selectedCategory && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-mouser-primary">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
                   Category: {selectedCategory}
                   <button
                     onClick={() => handleCategoryClick(selectedCategory)}
@@ -168,7 +168,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                 </span>
               )}
               {selectedSubcategory && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-mouser-primary">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
                   Subcategory: {selectedSubcategory}
                   <button
                     onClick={() => handleSubcategoryClick(selectedSubcategory)}
@@ -179,7 +179,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                 </span>
               )}
               {selectedProductType && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-mouser-primary">
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-mouser-filter-badge-bg text-mouser-primary">
                   Product Type: {selectedProductType}
                   <button
                     onClick={() => handleProductTypeClick(selectedProductType)}
