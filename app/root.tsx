@@ -10,19 +10,20 @@ import type { LinksFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { TopBar } from "./components/TopBar";
 import { getInventoryCount } from "./services/inventoryService";
+import { CONFIG } from "~/constants/config";
 
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "preconnect", href: CONFIG.EXTERNAL_URLS.GOOGLE_FONTS_PRECONNECT },
   {
     rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
+    href: CONFIG.EXTERNAL_URLS.GOOGLE_FONTS_GSTATIC,
+    crossOrigin: CONFIG.META.CROSSORIGIN_ANONYMOUS,
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: CONFIG.EXTERNAL_URLS.GOOGLE_FONTS_CSS,
   },
 ];
 
@@ -33,10 +34,10 @@ export async function loader() {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="overflow-y-scroll">
+    <html lang={CONFIG.META.HTML_LANG} className={CONFIG.DEFAULTS.SCROLL_BEHAVIOR}>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet={CONFIG.META.CHARSET} />
+        <meta name="viewport" content={CONFIG.META.VIEWPORT} />
         <Meta />
         <Links />
       </head>

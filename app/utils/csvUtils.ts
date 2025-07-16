@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import { CONFIG } from "~/constants/config";
 
 export interface CSVParseResult {
   lines: string[];
@@ -16,12 +17,6 @@ export const CSV_FIELD_INDICES = {
   SUBCATEGORY: 6,
   PRODUCT_TYPE: 7,
   QUANTITY: 8,
-} as const;
-
-export const CSV_CONFIG = {
-  EXPECTED_COLUMN_COUNT: 9,
-  HEADER_ROW_INDEX: 0,
-  DATA_START_INDEX: 1,
 } as const;
 
 /**
@@ -68,7 +63,7 @@ export function parseCSVFile(filePath: string): CSVParseResult {
 /**
  * Validates that a CSV row has the expected number of columns
  */
-export function validateCSVRow(values: string[], expectedCount: number = CSV_CONFIG.EXPECTED_COLUMN_COUNT): boolean {
+export function validateCSVRow(values: string[], expectedCount: number = CONFIG.CSV.EXPECTED_COLUMN_COUNT): boolean {
   return values.length >= expectedCount;
 }
 

@@ -1,5 +1,6 @@
 import { PATHS } from "~/constants/paths";
-import { parseCSVFile, parseCSVLine, validateCSVRow, getCSVValue, CSV_FIELD_INDICES, CSV_CONFIG } from "~/utils/csvUtils";
+import { CONFIG } from "~/constants/config";
+import { parseCSVFile, parseCSVLine, validateCSVRow, getCSVValue, CSV_FIELD_INDICES } from "~/utils/csvUtils";
 
 export interface InventoryItem {
   ID: string;
@@ -37,7 +38,7 @@ export function loadInventoryData(): InventoryItem[] {
     const results: InventoryItem[] = [];
 
     // Skip header row, start from data rows
-    for (let i = CSV_CONFIG.DATA_START_INDEX; i < csvResult.lines.length; i++) {
+    for (let i = CONFIG.CSV.DATA_START_INDEX; i < csvResult.lines.length; i++) {
       const values = parseCSVLine(csvResult.lines[i]);
 
       if (validateCSVRow(values)) {
