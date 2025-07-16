@@ -38,7 +38,7 @@ export function FilterPanel({
                 <li key={item}>
                   <button
                     onClick={() => onItemClick(item)}
-                    className={`w-full text-left ${DIMENSIONS.CELL_PADDING} text-xs ${DIMENSIONS.TRANSITION_COLORS} 
+                    className={`w-full text-left ${DIMENSIONS.CELL_PADDING} text-xs ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}
                       ${isSelected 
                         ? 'bg-mouser-filter-badge-bg text-mouser-primary font-medium hover:bg-mouser-filter-badge-hover-bg' 
                         : 'text-mouser-text-tertiary hover:bg-mouser-hover-gray'

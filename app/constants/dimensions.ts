@@ -45,6 +45,10 @@ export const DIMENSIONS = {
   TRANSITION_COLORS: "transition-colors duration-150",
   SHADOW_SM: "shadow-sm",
   
+  // Focus states
+  FOCUS_RING: "focus:outline-none focus:ring-2 focus:ring-mouser-primary focus:border-mouser-primary",
+  FOCUS_RING_LIGHT: "focus:outline-none focus:ring-2 focus:ring-mouser-primary-light focus:border-mouser-primary-light",
+  
   // Border patterns
   BORDER_LIGHT: "border-mouser-border-light",
   

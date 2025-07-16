@@ -59,13 +59,13 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleClearAllFilters}
-                className={`text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium ${DIMENSIONS.TRANSITION_COLORS}`}
+                className={`text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}`}
               >
                 {UI_TEXT.ACTIONS.RESET_ALL}
               </button>
               <button
                 onClick={handleClearAllFilters}
-                className={`${DIMENSIONS.BUTTON_PADDING} bg-mouser-primary text-white ${DIMENSIONS.LABEL_TEXT_MEDIUM} rounded hover:bg-mouser-hover-blue ${DIMENSIONS.TRANSITION_COLORS}`}
+                className={`${DIMENSIONS.BUTTON_PADDING} bg-mouser-primary text-white ${DIMENSIONS.LABEL_TEXT_MEDIUM} rounded hover:bg-mouser-hover-blue ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING}`}
               >
                 {UI_TEXT.ACTIONS.APPLY_FILTERS}
               </button>
@@ -82,7 +82,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   {UI_TEXT.FILTER_BADGES.MANUFACTURER} {selectedManufacturer}
                   <button
                     onClick={() => handleManufacturerClick(selectedManufacturer)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
                   >
                     ×
                   </button>
@@ -93,7 +93,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   {UI_TEXT.FILTER_BADGES.CATEGORY} {selectedCategory}
                   <button
                     onClick={() => handleCategoryClick(selectedCategory)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
                   >
                     ×
                   </button>
@@ -104,7 +104,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   {UI_TEXT.FILTER_BADGES.SUBCATEGORY} {selectedSubcategory}
                   <button
                     onClick={() => handleSubcategoryClick(selectedSubcategory)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
                   >
                     ×
                   </button>
@@ -115,7 +115,7 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
                   {UI_TEXT.FILTER_BADGES.PRODUCT_TYPE} {selectedProductType}
                   <button
                     onClick={() => handleProductTypeClick(selectedProductType)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue`}
+                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
                   >
                     ×
                   </button>
