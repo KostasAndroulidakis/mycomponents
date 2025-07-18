@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { type InventoryItem } from "~/services/inventoryService";
-import { PATHS } from "~/constants/paths";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
+import { ComponentImage } from "./ComponentImage";
 
 /**
  * Props for the InventoryTable component
@@ -10,37 +9,6 @@ import { UI_TEXT } from "~/constants/ui-text";
 interface InventoryTableProps {
   /** Array of inventory items to display */
   inventory: InventoryItem[];
-}
-
-/**
- * Component image display with error handling
- * Shows placeholder when image fails to load
- */
-function ComponentImage({ item }: { item: InventoryItem }) {
-  const [hasError, setHasError] = useState(false);
-
-  const handleImageError = () => {
-    setHasError(true);
-  };
-
-  if (!item.Image || hasError) {
-    return (
-      <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
-        <span className="text-xs text-mouser-text-disabled">{UI_TEXT.STATUS_MESSAGES.NO_IMAGE}</span>
-      </div>
-    );
-  }
-
-  return (
-    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
-      <img
-        src={`${PATHS.COMPONENT_IMAGES}${item.Image}`}
-        alt={item.Description}
-        className={`${DIMENSIONS.COMPONENT_IMAGE_SIZE} object-cover rounded`}
-        onError={handleImageError}
-      />
-    </div>
-  );
 }
 
 /**
