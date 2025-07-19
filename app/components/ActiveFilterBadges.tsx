@@ -59,43 +59,52 @@ export function ActiveFilterBadges({
 }: ActiveFilterBadgesProps): JSX.Element | null {
   // Extract current filter values using centralized utility
   const filterParams = extractFilterParams(searchParams);
-  const { manufacturer: selectedManufacturer, category: selectedCategory, subcategory: selectedSubcategory, productType: selectedProductType } = filterParams;
+
+  // Configuration-driven approach to eliminate repetition
+  const filterConfigs = [
+    {
+      key: 'manufacturer',
+      value: filterParams.manufacturer,
+      label: UI_TEXT.FILTER_BADGES.MANUFACTURER,
+      onRemove: onRemoveManufacturer,
+    },
+    {
+      key: 'category',
+      value: filterParams.category,
+      label: UI_TEXT.FILTER_BADGES.CATEGORY,
+      onRemove: onRemoveCategory,
+    },
+    {
+      key: 'subcategory',
+      value: filterParams.subcategory,
+      label: UI_TEXT.FILTER_BADGES.SUBCATEGORY,
+      onRemove: onRemoveSubcategory,
+    },
+    {
+      key: 'productType',
+      value: filterParams.productType,
+      label: UI_TEXT.FILTER_BADGES.PRODUCT_TYPE,
+      onRemove: onRemoveProductType,
+    },
+  ] as const;
+
+  // Filter out inactive filters
+  const activeFilters = filterConfigs.filter(config => config.value);
 
   // Return null if no filters are active
-  const hasAnyFilters = selectedManufacturer || selectedCategory || selectedSubcategory || selectedProductType;
-  if (!hasAnyFilters) return null;
+  if (activeFilters.length === 0) return null;
 
   return (
     <div className={DIMENSIONS.MT_2}>
       <div className={`${DIMENSIONS.FLEX_WRAP} ${DIMENSIONS.BADGE_GAPS}`}>
-        {selectedManufacturer && (
+        {activeFilters.map(({ key, value, label, onRemove }) => (
           <FilterBadge
-            label={UI_TEXT.FILTER_BADGES.MANUFACTURER}
-            value={selectedManufacturer}
-            onRemove={() => onRemoveManufacturer(selectedManufacturer)}
+            key={key}
+            label={label}
+            value={value}
+            onRemove={() => onRemove(value)}
           />
-        )}
-        {selectedCategory && (
-          <FilterBadge
-            label={UI_TEXT.FILTER_BADGES.CATEGORY}
-            value={selectedCategory}
-            onRemove={() => onRemoveCategory(selectedCategory)}
-          />
-        )}
-        {selectedSubcategory && (
-          <FilterBadge
-            label={UI_TEXT.FILTER_BADGES.SUBCATEGORY}
-            value={selectedSubcategory}
-            onRemove={() => onRemoveSubcategory(selectedSubcategory)}
-          />
-        )}
-        {selectedProductType && (
-          <FilterBadge
-            label={UI_TEXT.FILTER_BADGES.PRODUCT_TYPE}
-            value={selectedProductType}
-            onRemove={() => onRemoveProductType(selectedProductType)}
-          />
-        )}
+        ))}
       </div>
     </div>
   );
