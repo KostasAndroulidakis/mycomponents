@@ -1,3 +1,4 @@
+import { ActiveFilterBadges } from "./ActiveFilterBadges";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 
@@ -31,12 +32,6 @@ export function FilterMenuHeader({
   onRemoveSubcategory,
   onRemoveProductType,
 }: FilterMenuHeaderProps): JSX.Element {
-  // Extract current filter values
-  const selectedManufacturer = searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER) || "";
-  const selectedCategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY) || "";
-  const selectedSubcategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY) || "";
-  const selectedProductType = searchParams.get(UI_TEXT.SEARCH_PARAMS.PRODUCT_TYPE) || "";
-
   return (
     <div className={`${DIMENSIONS.HEADER_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
       <div className={DIMENSIONS.FLEX_BETWEEN}>
@@ -62,68 +57,13 @@ export function FilterMenuHeader({
       </div>
 
       {/* Active filter badges */}
-      {hasFilters && (
-        <div className={DIMENSIONS.MT_2}>
-          <div className={`${DIMENSIONS.FLEX_WRAP} ${DIMENSIONS.BADGE_GAPS}`}>
-            {selectedManufacturer && (
-              <FilterBadge
-                label={UI_TEXT.FILTER_BADGES.MANUFACTURER}
-                value={selectedManufacturer}
-                onRemove={() => onRemoveManufacturer(selectedManufacturer)}
-              />
-            )}
-            {selectedCategory && (
-              <FilterBadge
-                label={UI_TEXT.FILTER_BADGES.CATEGORY}
-                value={selectedCategory}
-                onRemove={() => onRemoveCategory(selectedCategory)}
-              />
-            )}
-            {selectedSubcategory && (
-              <FilterBadge
-                label={UI_TEXT.FILTER_BADGES.SUBCATEGORY}
-                value={selectedSubcategory}
-                onRemove={() => onRemoveSubcategory(selectedSubcategory)}
-              />
-            )}
-            {selectedProductType && (
-              <FilterBadge
-                label={UI_TEXT.FILTER_BADGES.PRODUCT_TYPE}
-                value={selectedProductType}
-                onRemove={() => onRemoveProductType(selectedProductType)}
-              />
-            )}
-          </div>
-        </div>
-      )}
+      <ActiveFilterBadges
+        searchParams={searchParams}
+        onRemoveManufacturer={onRemoveManufacturer}
+        onRemoveCategory={onRemoveCategory}
+        onRemoveSubcategory={onRemoveSubcategory}
+        onRemoveProductType={onRemoveProductType}
+      />
     </div>
-  );
-}
-
-/**
- * Reusable filter badge component
- * Displays a filter label and value with a remove button
- */
-interface FilterBadgeProps {
-  /** Badge label text */
-  label: string;
-  /** Filter value */
-  value: string;
-  /** Callback when remove button is clicked */
-  onRemove: () => void;
-}
-
-function FilterBadge({ label, value, onRemove }: FilterBadgeProps): JSX.Element {
-  return (
-    <span className={`${DIMENSIONS.INLINE_FLEX_ITEMS} ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
-      {label} {value}
-      <button
-        onClick={onRemove}
-        className={`${DIMENSIONS.ML_1} ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-        aria-label={`Remove ${label.toLowerCase()} filter`}
-      >
-        {UI_TEXT.ACTIONS.CLOSE_FILTER}
-      </button>
-    </span>
   );
 }
