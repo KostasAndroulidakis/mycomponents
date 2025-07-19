@@ -111,10 +111,20 @@ export const DIMENSIONS = {
   OBJECT_COVER: "object-cover",
   DIVIDE_Y: "divide-y",
   FLEX_SHRINK_0: "flex-shrink-0",
+  TRUNCATE: "truncate",
   
   // Transitions
   SEARCH_TRANSITION: "transition duration-150 ease-in-out",
   BRAND_TRANSITION: "transition-colors duration-200",
+  
+  // Table styles
+  TABLE_HEADER_CELL: "px-3 py-2 text-left text-xs font-semibold text-mouser-text-secondary",
+  TABLE_CELL_BASE: "px-3 py-2 whitespace-nowrap",
+  TABLE_CELL_PRIMARY: "px-3 py-2 whitespace-nowrap text-xs text-mouser-text-primary font-medium",
+  TABLE_CELL_SECONDARY: "px-3 py-2 whitespace-nowrap text-xs text-mouser-text-tertiary",
+  TABLE_CELL_DESCRIPTION: "px-3 py-2 text-xs text-mouser-text-primary max-w-xs",
+  TABLE_CELL_QUANTITY: "px-3 py-2 whitespace-nowrap text-xs font-medium text-mouser-success",
+  TABLE_CONTAINER: "min-w-full divide-y divide-mouser-border-light",
 } as const;
 
 export type DimensionKey = keyof typeof DIMENSIONS;

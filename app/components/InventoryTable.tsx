@@ -30,61 +30,61 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
       </div>
 
       <div className={DIMENSIONS.OVERFLOW_X_AUTO}>
-        <table className={`${DIMENSIONS.MIN_W_FULL} ${DIMENSIONS.DIVIDE_Y} ${DIMENSIONS.BORDER_LIGHT}`}>
+        <table className={DIMENSIONS.TABLE_CONTAINER}>
           <thead className={DIMENSIONS.BG_LIGHT}>
             <tr>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.IMAGE}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.PART_NUMBER}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.MANUFACTURER}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.DESCRIPTION}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.CATEGORY}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.SUBCATEGORY}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.PRODUCT_TYPE}
               </th>
-              <th className={`${DIMENSIONS.CELL_PADDING} text-left ${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary`}>
+              <th className={DIMENSIONS.TABLE_HEADER_CELL}>
                 {UI_TEXT.TABLE_HEADERS.QUANTITY}
               </th>
             </tr>
           </thead>
-          <tbody className={`bg-white divide-y ${DIMENSIONS.BORDER_LIGHT}`}>
+          <tbody className={`bg-mouser-bg-white ${DIMENSIONS.DIVIDE_Y} ${DIMENSIONS.BORDER_LIGHT}`}>
             {inventory.map((item) => (
               <tr key={item.ID} className={`hover:bg-mouser-hover-gray ${DIMENSIONS.TRANSITION_COLORS}`}>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP}`}>
+                <td className={DIMENSIONS.TABLE_CELL_BASE}>
                   <ComponentImage item={item} />
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP} ${DIMENSIONS.TEXT_XS} text-mouser-text-primary ${DIMENSIONS.FONT_MEDIUM}`}>
+                <td className={DIMENSIONS.TABLE_CELL_PRIMARY}>
                   {item.ManufacturerPartNumber}
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP} ${DIMENSIONS.TEXT_XS} text-mouser-text-tertiary`}>
+                <td className={DIMENSIONS.TABLE_CELL_SECONDARY}>
                   {item.Manufacturer}
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.TEXT_XS} text-mouser-text-primary ${DIMENSIONS.MAX_W_XS}`}>
-                  <div className="truncate" title={item.Description}>{item.Description}</div>
+                <td className={DIMENSIONS.TABLE_CELL_DESCRIPTION}>
+                  <div className={DIMENSIONS.TRUNCATE} title={item.Description}>{item.Description}</div>
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP} ${DIMENSIONS.TEXT_XS} text-mouser-text-tertiary`}>
+                <td className={DIMENSIONS.TABLE_CELL_SECONDARY}>
                   {item.Category}
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP} ${DIMENSIONS.TEXT_XS} text-mouser-text-tertiary`}>
+                <td className={DIMENSIONS.TABLE_CELL_SECONDARY}>
                   {item.Subcategory}
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP} ${DIMENSIONS.TEXT_XS} text-mouser-text-tertiary`}>
+                <td className={DIMENSIONS.TABLE_CELL_SECONDARY}>
                   {item.ProductType}
                 </td>
-                <td className={`${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.WHITESPACE_NOWRAP}`}>
-                  <span className={`${DIMENSIONS.INLINE_FLEX_ITEMS} ${DIMENSIONS.PX_2_PY_05} ${DIMENSIONS.ROUNDED} ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-quantity-bg text-mouser-success`}>
+                <td className={DIMENSIONS.TABLE_CELL_QUANTITY}>
+                  <span className={`${DIMENSIONS.INLINE_FLEX_ITEMS} ${DIMENSIONS.PX_2_PY_05} ${DIMENSIONS.ROUNDED} ${DIMENSIONS.TEXT_XS} ${DIMENSIONS.FONT_SEMIBOLD} bg-mouser-quantity-bg`}>
                     {item.Quantity}
                   </span>
                 </td>

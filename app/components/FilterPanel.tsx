@@ -59,7 +59,7 @@ export function FilterPanel({
                       }`}
                   >
                     <span className={DIMENSIONS.FLEX_BETWEEN}>
-                      <span className="truncate">{item}</span>
+                      <span className={DIMENSIONS.TRUNCATE}>{item}</span>
                       {isSelected && (
                         <svg className={`${DIMENSIONS.CHECK_ICON_SIZE} text-mouser-primary ${DIMENSIONS.ML_2} ${DIMENSIONS.FLEX_SHRINK_0}`} fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
