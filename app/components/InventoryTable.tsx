@@ -1,4 +1,5 @@
 import { type InventoryItem } from "~/services/inventoryService";
+import { SectionHeader } from "./SectionHeader";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
 import { ComponentImage } from "./ComponentImage";
@@ -16,18 +17,18 @@ interface InventoryTableProps {
  * Features responsive design with hover effects and empty state handling
  */
 export function InventoryTable({ inventory }: InventoryTableProps) {
+  const rightContent = (
+    <div className={`${DIMENSIONS.TEXT_XS} text-mouser-text-tertiary`}>
+      {UI_TEXT.LABELS.SMART_FILTERING}
+    </div>
+  );
+
   return (
     <div className={`${DIMENSIONS.CONTAINER_CARD} ${DIMENSIONS.OVERFLOW_HIDDEN}`}>
-      <div className={`${DIMENSIONS.HEADER_PADDING} ${DIMENSIONS.BORDER_B} ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
-        <div className={DIMENSIONS.FLEX_BETWEEN}>
-          <h2 className={`${DIMENSIONS.TEXT_SM} ${DIMENSIONS.FONT_SEMIBOLD} text-mouser-text-primary`}>
-            {UI_TEXT.LABELS.RESULTS} {inventory.length.toLocaleString()}
-          </h2>
-          <div className={`${DIMENSIONS.TEXT_XS} text-mouser-text-tertiary`}>
-            {UI_TEXT.LABELS.SMART_FILTERING}
-          </div>
-        </div>
-      </div>
+      <SectionHeader 
+        title={`${UI_TEXT.LABELS.RESULTS} ${inventory.length.toLocaleString()}`}
+        rightContent={rightContent}
+      />
 
       <div className={DIMENSIONS.OVERFLOW_X_AUTO}>
         <table className={DIMENSIONS.TABLE_CONTAINER}>
