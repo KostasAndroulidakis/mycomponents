@@ -1,9 +1,21 @@
 import { UI_TEXT } from "~/constants/ui-text";
+import type { InventoryFilters } from "~/services/inventoryService";
 
 /**
  * Available filter types for inventory filtering
  */
 export type FilterType = "manufacturer" | "category" | "subcategory" | "productType";
+
+/**
+ * Extracted filter parameter values from URL search parameters
+ */
+export interface ExtractedFilterParams {
+  manufacturer: string;
+  category: string;
+  subcategory: string;
+  productType: string;
+  query: string;
+}
 
 /**
  * Defines the hierarchical relationship between filters
@@ -98,4 +110,37 @@ export const clearAllFilters = (
 export const hasActiveFilters = (searchParams: URLSearchParams): boolean => {
   const allFilters: FilterType[] = ["manufacturer", "category", "subcategory", "productType"];
   return allFilters.some(filter => searchParams.has(FILTER_PARAM_MAP[filter]));
+};
+
+/**
+ * Extracts all filter parameters from URL search parameters
+ * Centralizes the logic for extracting filter values to eliminate duplication
+ * @param searchParams URL search parameters to extract from
+ * @returns Object containing all extracted filter values with empty string defaults
+ */
+export const extractFilterParams = (searchParams: URLSearchParams): ExtractedFilterParams => {
+  return {
+    manufacturer: searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER) || "",
+    category: searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY) || "",
+    subcategory: searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY) || "",
+    productType: searchParams.get(UI_TEXT.SEARCH_PARAMS.PRODUCT_TYPE) || "",
+    query: searchParams.get(UI_TEXT.SEARCH_PARAMS.QUERY) || "",
+  };
+};
+
+/**
+ * Converts extracted filter parameters to InventoryFilters format for service layer
+ * @param params Extracted filter parameters from URL
+ * @returns InventoryFilters object with only non-empty values
+ */
+export const convertToInventoryFilters = (params: ExtractedFilterParams): InventoryFilters => {
+  const filters: InventoryFilters = {};
+  
+  if (params.manufacturer) filters.manufacturer = params.manufacturer;
+  if (params.category) filters.category = params.category;
+  if (params.subcategory) filters.subcategory = params.subcategory;
+  if (params.productType) filters.productType = params.productType;
+  if (params.query) filters.searchQuery = params.query;
+  
+  return filters;
 };

@@ -1,5 +1,6 @@
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
+import { extractFilterParams } from "~/utils/filterUtils";
 
 /**
  * Props for individual filter badge
@@ -56,11 +57,9 @@ export function ActiveFilterBadges({
   onRemoveSubcategory,
   onRemoveProductType,
 }: ActiveFilterBadgesProps): JSX.Element | null {
-  // Extract current filter values
-  const selectedManufacturer = searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER) || "";
-  const selectedCategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY) || "";
-  const selectedSubcategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY) || "";
-  const selectedProductType = searchParams.get(UI_TEXT.SEARCH_PARAMS.PRODUCT_TYPE) || "";
+  // Extract current filter values using centralized utility
+  const filterParams = extractFilterParams(searchParams);
+  const { manufacturer: selectedManufacturer, category: selectedCategory, subcategory: selectedSubcategory, productType: selectedProductType } = filterParams;
 
   // Return null if no filters are active
   const hasAnyFilters = selectedManufacturer || selectedCategory || selectedSubcategory || selectedProductType;

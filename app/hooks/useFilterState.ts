@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { useSearchParams } from "@remix-run/react";
 import { CATEGORIES } from "~/constants/categories";
-import { UI_TEXT } from "~/constants/ui-text";
-import { createFilterHandler, clearAllFilters, hasActiveFilters } from "~/utils/filterUtils";
+import { createFilterHandler, clearAllFilters, hasActiveFilters, extractFilterParams } from "~/utils/filterUtils";
 
 /**
  * Return type for useFilterState hook
@@ -42,11 +41,9 @@ export interface FilterState {
 export function useFilterState(): FilterState {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Extract current filter values
-  const selectedManufacturer = searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER) || "";
-  const selectedCategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY) || "";
-  const selectedSubcategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY) || "";
-  const selectedProductType = searchParams.get(UI_TEXT.SEARCH_PARAMS.PRODUCT_TYPE) || "";
+  // Extract current filter values using centralized utility
+  const filterParams = extractFilterParams(searchParams);
+  const { manufacturer: selectedManufacturer, category: selectedCategory, subcategory: selectedSubcategory, productType: selectedProductType } = filterParams;
 
   // Compute available categories (static, but memoized for consistency)
   const categories = useMemo(() =>
