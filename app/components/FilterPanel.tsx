@@ -1,5 +1,6 @@
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
+import { SVG_CONFIGS } from "~/constants/svg";
 
 /**
  * Props for the FilterPanel component
@@ -21,12 +22,12 @@ interface FilterPanelProps {
  * Reusable filter panel component with scrollable item list
  * Displays selectable items with visual selection indicators
  */
-export function FilterPanel({ 
-  title, 
-  items, 
-  selectedItems, 
+export function FilterPanel({
+  title,
+  items,
+  selectedItems,
   onItemClick,
-  isLoading = false 
+  isLoading = false
 }: FilterPanelProps) {
   return (
     <div className={`${DIMENSIONS.BG_WHITE} ${DIMENSIONS.BORDER} ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.ROUNDED}`}>
@@ -53,16 +54,25 @@ export function FilterPanel({
                   <button
                     onClick={() => onItemClick(item)}
                     className={`${DIMENSIONS.W_FULL_TEXT_LEFT} ${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.TEXT_XS} ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}
-                      ${isSelected 
-                        ? `bg-mouser-filter-badge-bg text-mouser-primary ${DIMENSIONS.FONT_MEDIUM} hover:bg-mouser-filter-badge-hover-bg` 
+                      ${isSelected
+                        ? `bg-mouser-filter-badge-bg text-mouser-primary ${DIMENSIONS.FONT_MEDIUM} hover:bg-mouser-filter-badge-hover-bg`
                         : `text-mouser-text-tertiary ${DIMENSIONS.HOVER_BG_GRAY}`
                       }`}
                   >
                     <span className={DIMENSIONS.FLEX_BETWEEN}>
                       <span className={DIMENSIONS.TRUNCATE}>{item}</span>
                       {isSelected && (
-                        <svg className={`${DIMENSIONS.CHECK_ICON_SIZE} text-mouser-primary ${DIMENSIONS.ML_2} ${DIMENSIONS.FLEX_SHRINK_0}`} fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        <svg
+                          className={`${DIMENSIONS.CHECK_ICON_SIZE} text-mouser-primary ${DIMENSIONS.ML_2} ${DIMENSIONS.FLEX_SHRINK_0}`}
+                          fill={SVG_CONFIGS.CHECKMARK_ICON.fill}
+                          viewBox={SVG_CONFIGS.CHECKMARK_ICON.viewBox}
+                          aria-hidden="true"
+                        >
+                          <path
+                            fillRule={SVG_CONFIGS.CHECKMARK_ICON.fillRule}
+                            d={SVG_CONFIGS.CHECKMARK_ICON.path}
+                            clipRule={SVG_CONFIGS.CHECKMARK_ICON.clipRule}
+                          />
                         </svg>
                       )}
                     </span>
