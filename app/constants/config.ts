@@ -15,7 +15,7 @@ export const CONFIG = {
   EXTERNAL_URLS: {
     GOOGLE_FONTS_PRECONNECT: "https://fonts.googleapis.com",
     GOOGLE_FONTS_GSTATIC: "https://fonts.gstatic.com",
-    GOOGLE_FONTS_CSS: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    GOOGLE_FONTS_CSS: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=optional",
   },
 
   // HTML Meta values

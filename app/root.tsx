@@ -26,6 +26,11 @@ export const links: LinksFunction = () => [
     crossOrigin: CONFIG.META.CROSSORIGIN_ANONYMOUS,
   },
   {
+    rel: "preload",
+    as: "style",
+    href: CONFIG.EXTERNAL_URLS.GOOGLE_FONTS_CSS,
+  },
+  {
     rel: "stylesheet",
     href: CONFIG.EXTERNAL_URLS.GOOGLE_FONTS_CSS,
   },
