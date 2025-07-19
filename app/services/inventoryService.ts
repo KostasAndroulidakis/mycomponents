@@ -5,6 +5,55 @@ import { withServiceErrorHandling } from "~/utils/errorUtils";
 import { UI_TEXT } from "~/constants/ui-text";
 
 /**
+ * Service-specific error handling wrappers to reduce duplication
+ * These functions encapsulate common error handling patterns for inventory operations
+ */
+
+/**
+ * Wrapper for inventory data operations that return arrays
+ * @param operation The operation to execute
+ * @param errorContext The error context message
+ * @returns Array result or empty array on error
+ */
+function withInventoryArrayErrorHandling<T>(
+  operation: () => T[],
+  errorContext: string
+): T[] {
+  return withServiceErrorHandling(operation, [], errorContext);
+}
+
+/**
+ * Wrapper for inventory count operations
+ * @param operation The operation to execute
+ * @param errorContext The error context message
+ * @returns Count result or 0 on error
+ */
+function withInventoryCountErrorHandling(
+  operation: () => number,
+  errorContext: string
+): number {
+  return withServiceErrorHandling(operation, 0, errorContext);
+}
+
+/**
+ * Wrapper for inventory data operations that return InventoryData
+ * @param operation The operation to execute
+ * @param errorContext The error context message
+ * @returns InventoryData result or empty structure on error
+ */
+function withInventoryDataErrorHandling(
+  operation: () => InventoryData,
+  errorContext: string
+): InventoryData {
+  const emptyInventoryData: InventoryData = {
+    inventory: [],
+    manufacturers: [],
+    totalCount: 0
+  };
+  return withServiceErrorHandling(operation, emptyInventoryData, errorContext);
+}
+
+/**
  * Represents a single inventory item with all its properties
  */
 export interface InventoryItem {
@@ -62,7 +111,7 @@ export interface InventoryData {
  * @returns Array of inventory items parsed from CSV
  */
 export function loadInventoryData(): InventoryItem[] {
-  return withServiceErrorHandling(
+  return withInventoryArrayErrorHandling(
     () => {
       const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
       const results: InventoryItem[] = [];
@@ -89,7 +138,6 @@ export function loadInventoryData(): InventoryItem[] {
 
       return results;
     },
-    [], // fallback to empty array
     UI_TEXT.ERRORS.LOADING_INVENTORY
   );
 }
@@ -99,12 +147,11 @@ export function loadInventoryData(): InventoryItem[] {
  * @returns Total number of inventory items in the CSV file
  */
 export function getInventoryCount(): number {
-  return withServiceErrorHandling(
+  return withInventoryCountErrorHandling(
     () => {
       const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
       return csvResult.dataRowCount;
     },
-    0, // fallback to zero count
     UI_TEXT.ERRORS.GETTING_COUNT
   );
 }
@@ -177,7 +224,7 @@ export function extractManufacturers(items: InventoryItem[]): string[] {
  * @returns Complete inventory data with filtered items and metadata
  */
 export function getInventoryData(filters: InventoryFilters = {}): InventoryData {
-  return withServiceErrorHandling(
+  return withInventoryDataErrorHandling(
     () => {
       const allItems = loadInventoryData();
       const manufacturers = extractManufacturers(allItems);
@@ -188,11 +235,6 @@ export function getInventoryData(filters: InventoryFilters = {}): InventoryData 
         manufacturers,
         totalCount: allItems.length
       };
-    },
-    { // fallback to empty data structure
-      inventory: [],
-      manufacturers: [],
-      totalCount: 0
     },
     UI_TEXT.ERRORS.RETRIEVING_DATA
   );
