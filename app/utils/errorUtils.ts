@@ -3,6 +3,8 @@
  * Centralizes error handling patterns to eliminate duplication
  */
 
+import { UI_TEXT } from "~/constants/ui-text";
+
 /**
  * Type-safe error message extractor
  * Handles unknown error types and provides consistent error messaging
@@ -18,7 +20,7 @@ export function extractErrorMessage(error: unknown): string {
     return error;
   }
   
-  return 'Unknown error occurred';
+  return UI_TEXT.ERRORS.UNKNOWN_ERROR;
 }
 
 /**

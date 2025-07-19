@@ -25,7 +25,7 @@ export function FilterBadge({ label, value, onRemove }: FilterBadgeProps): JSX.E
       <button
         onClick={onRemove}
         className={`${DIMENSIONS.ML_1} ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-        aria-label={`Remove ${label.toLowerCase()} filter`}
+        aria-label={UI_TEXT.ACCESSIBILITY.REMOVE_FILTER_TEMPLATE.replace("{0}", label.toLowerCase())}
       >
         {UI_TEXT.ACTIONS.CLOSE_FILTER}
       </button>

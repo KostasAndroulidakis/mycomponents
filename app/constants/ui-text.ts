@@ -67,4 +67,25 @@ export const UI_TEXT = {
     PRODUCT_TYPE: "productType",
     QUERY: "q",
   },
+
+  ACCESSIBILITY: {
+    REMOVE_FILTER_TEMPLATE: "Remove {0} filter",
+  },
+
+  INPUT_TYPES: {
+    SEARCH: "search",
+    TEXT: "text",
+  },
+
+  HTTP_METHODS: {
+    GET: "get",
+    POST: "post",
+  },
+
+  ERRORS: {
+    UNKNOWN_ERROR: "Unknown error occurred",
+    LOADING_INVENTORY: "loading inventory data",
+    GETTING_COUNT: "getting inventory count",
+    RETRIEVING_DATA: "retrieving inventory data",
+  },
 } as const;

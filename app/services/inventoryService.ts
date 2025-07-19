@@ -2,6 +2,7 @@ import { PATHS } from "~/constants/paths";
 import { CONFIG } from "~/constants/config";
 import { parseCSVFile, parseCSVLine, validateCSVRow, getCSVValue, CSV_FIELD_INDICES } from "~/utils/csvUtils";
 import { withServiceErrorHandling } from "~/utils/errorUtils";
+import { UI_TEXT } from "~/constants/ui-text";
 
 /**
  * Represents a single inventory item with all its properties
@@ -89,7 +90,7 @@ export function loadInventoryData(): InventoryItem[] {
       return results;
     },
     [], // fallback to empty array
-    'loading inventory data'
+    UI_TEXT.ERRORS.LOADING_INVENTORY
   );
 }
 
@@ -104,7 +105,7 @@ export function getInventoryCount(): number {
       return csvResult.dataRowCount;
     },
     0, // fallback to zero count
-    'getting inventory count'
+    UI_TEXT.ERRORS.GETTING_COUNT
   );
 }
 
@@ -193,6 +194,6 @@ export function getInventoryData(filters: InventoryFilters = {}): InventoryData 
       manufacturers: [],
       totalCount: 0
     },
-    'retrieving inventory data'
+    UI_TEXT.ERRORS.RETRIEVING_DATA
   );
 }

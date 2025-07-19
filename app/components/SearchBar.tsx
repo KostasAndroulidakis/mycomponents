@@ -25,13 +25,13 @@ export function SearchBar({
   className = ""
 }: SearchBarProps) {
   return (
-    <Form method="get" className={`${DIMENSIONS.RELATIVE} ${className}`}>
+    <Form method={UI_TEXT.HTTP_METHODS.GET} className={`${DIMENSIONS.RELATIVE} ${className}`}>
       <div className={DIMENSIONS.RELATIVE}>
         <div className={`${DIMENSIONS.ABSOLUTE_ICON_LEFT} ${DIMENSIONS.PL_3} ${DIMENSIONS.FLEX_ITEMS_CENTER} ${DIMENSIONS.POINTER_EVENTS_NONE}`}>
           <MagnifyingGlassIcon className={`${DIMENSIONS.SEARCH_ICON_SIZE} text-mouser-text-disabled`} aria-hidden="true" />
         </div>
         <input
-          type="search"
+          type={UI_TEXT.INPUT_TYPES.SEARCH}
           name={UI_TEXT.SEARCH_PARAMS.QUERY}
           className={`${DIMENSIONS.BLOCK_W_FULL} ${DIMENSIONS.PL_10} ${DIMENSIONS.PR_3} ${DIMENSIONS.PY_2} ${DIMENSIONS.BORDER} ${DIMENSIONS.BORDER_MEDIUM} ${DIMENSIONS.ROUNDED_LG} ${DIMENSIONS.LEADING_5} ${DIMENSIONS.BG_WHITE} placeholder-mouser-text-disabled focus:placeholder-mouser-text-tertiary ${DIMENSIONS.FOCUS_RING_LIGHT} ${DIMENSIONS.SEARCH_TRANSITION}`}
           placeholder={placeholder}
