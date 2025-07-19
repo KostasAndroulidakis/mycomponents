@@ -1,6 +1,7 @@
 import { PATHS } from "~/constants/paths";
 import { CONFIG } from "~/constants/config";
 import { parseCSVFile, parseCSVLine, validateCSVRow, getCSVValue, CSV_FIELD_INDICES } from "~/utils/csvUtils";
+import { withServiceErrorHandling } from "~/utils/errorUtils";
 
 /**
  * Represents a single inventory item with all its properties
@@ -60,35 +61,36 @@ export interface InventoryData {
  * @returns Array of inventory items parsed from CSV
  */
 export function loadInventoryData(): InventoryItem[] {
-  try {
-    const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
-    const results: InventoryItem[] = [];
+  return withServiceErrorHandling(
+    () => {
+      const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
+      const results: InventoryItem[] = [];
 
-    // Skip header row, start from data rows
-    for (let i = CONFIG.CSV.DATA_START_INDEX; i < csvResult.lines.length; i++) {
-      const values = parseCSVLine(csvResult.lines[i]);
+      // Skip header row, start from data rows
+      for (let i = CONFIG.CSV.DATA_START_INDEX; i < csvResult.lines.length; i++) {
+        const values = parseCSVLine(csvResult.lines[i]);
 
-      if (validateCSVRow(values)) {
-        const item: InventoryItem = {
-          ID: getCSVValue(values, CSV_FIELD_INDICES.ID),
-          Image: getCSVValue(values, CSV_FIELD_INDICES.IMAGE),
-          ManufacturerPartNumber: getCSVValue(values, CSV_FIELD_INDICES.MANUFACTURER_PART_NUMBER),
-          Manufacturer: getCSVValue(values, CSV_FIELD_INDICES.MANUFACTURER),
-          Description: getCSVValue(values, CSV_FIELD_INDICES.DESCRIPTION),
-          Category: getCSVValue(values, CSV_FIELD_INDICES.CATEGORY),
-          Subcategory: getCSVValue(values, CSV_FIELD_INDICES.SUBCATEGORY),
-          ProductType: getCSVValue(values, CSV_FIELD_INDICES.PRODUCT_TYPE),
-          Quantity: getCSVValue(values, CSV_FIELD_INDICES.QUANTITY),
-        };
-        results.push(item);
+        if (validateCSVRow(values)) {
+          const item: InventoryItem = {
+            ID: getCSVValue(values, CSV_FIELD_INDICES.ID),
+            Image: getCSVValue(values, CSV_FIELD_INDICES.IMAGE),
+            ManufacturerPartNumber: getCSVValue(values, CSV_FIELD_INDICES.MANUFACTURER_PART_NUMBER),
+            Manufacturer: getCSVValue(values, CSV_FIELD_INDICES.MANUFACTURER),
+            Description: getCSVValue(values, CSV_FIELD_INDICES.DESCRIPTION),
+            Category: getCSVValue(values, CSV_FIELD_INDICES.CATEGORY),
+            Subcategory: getCSVValue(values, CSV_FIELD_INDICES.SUBCATEGORY),
+            ProductType: getCSVValue(values, CSV_FIELD_INDICES.PRODUCT_TYPE),
+            Quantity: getCSVValue(values, CSV_FIELD_INDICES.QUANTITY),
+          };
+          results.push(item);
+        }
       }
-    }
 
-    return results;
-  } catch (error) {
-    console.error('Error loading inventory data:', error);
-    return [];
-  }
+      return results;
+    },
+    [], // fallback to empty array
+    'loading inventory data'
+  );
 }
 
 /**
@@ -96,13 +98,14 @@ export function loadInventoryData(): InventoryItem[] {
  * @returns Total number of inventory items in the CSV file
  */
 export function getInventoryCount(): number {
-  try {
-    const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
-    return csvResult.dataRowCount;
-  } catch (error) {
-    console.error('Error getting inventory count:', error);
-    return 0;
-  }
+  return withServiceErrorHandling(
+    () => {
+      const csvResult = parseCSVFile(PATHS.INVENTORY_CSV);
+      return csvResult.dataRowCount;
+    },
+    0, // fallback to zero count
+    'getting inventory count'
+  );
 }
 
 /**
@@ -173,22 +176,23 @@ export function extractManufacturers(items: InventoryItem[]): string[] {
  * @returns Complete inventory data with filtered items and metadata
  */
 export function getInventoryData(filters: InventoryFilters = {}): InventoryData {
-  try {
-    const allItems = loadInventoryData();
-    const manufacturers = extractManufacturers(allItems);
-    const filteredItems = filterInventory(allItems, filters);
+  return withServiceErrorHandling(
+    () => {
+      const allItems = loadInventoryData();
+      const manufacturers = extractManufacturers(allItems);
+      const filteredItems = filterInventory(allItems, filters);
 
-    return {
-      inventory: filteredItems,
-      manufacturers,
-      totalCount: allItems.length
-    };
-  } catch (error) {
-    console.error('Error in getInventoryData:', error);
-    return {
+      return {
+        inventory: filteredItems,
+        manufacturers,
+        totalCount: allItems.length
+      };
+    },
+    { // fallback to empty data structure
       inventory: [],
       manufacturers: [],
       totalCount: 0
-    };
-  }
+    },
+    'retrieving inventory data'
+  );
 }

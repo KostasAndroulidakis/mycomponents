@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import { CONFIG } from "~/constants/config";
+import { createEnhancedError, safeArrayAccess } from "~/utils/errorUtils";
 
 /**
  * Result structure for CSV parsing operations
@@ -70,7 +71,7 @@ export function parseCSVFile(filePath: string): CSVParseResult {
       dataRowCount: Math.max(0, lines.length - 1), // Subtract header row
     };
   } catch (error) {
-    throw new Error(`Failed to read CSV file: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    throw createEnhancedError(error, 'Failed to read CSV file');
   }
 }
 
@@ -91,5 +92,6 @@ export function validateCSVRow(values: string[], expectedCount: number = CONFIG.
  * @returns Trimmed field value or empty string if not found
  */
 export function getCSVValue(values: string[], index: number): string {
-  return values[index]?.trim() || '';
+  const value = safeArrayAccess(values, index, '');
+  return value.trim();
 }
