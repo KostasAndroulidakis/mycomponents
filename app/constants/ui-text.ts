@@ -89,3 +89,10 @@ export const UI_TEXT = {
     RETRIEVING_DATA: "retrieving inventory data",
   },
 } as const;
+
+/**
+ * Filter types array used throughout the application
+ * Extracted to eliminate duplication in filterUtils.ts
+ */
+export const FILTER_TYPES = ["manufacturer", "category", "subcategory", "productType"] as const;
+export type FilterType = typeof FILTER_TYPES[number];

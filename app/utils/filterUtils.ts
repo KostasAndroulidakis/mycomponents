@@ -1,10 +1,5 @@
-import { UI_TEXT } from "~/constants/ui-text";
+import { UI_TEXT, FILTER_TYPES, type FilterType } from "~/constants/ui-text";
 import type { InventoryFilters } from "~/services/inventoryService";
-
-/**
- * Available filter types for inventory filtering
- */
-export type FilterType = "manufacturer" | "category" | "subcategory" | "productType";
 
 /**
  * Extracted filter parameter values from URL search parameters
@@ -93,7 +88,7 @@ export const clearAllFilters = (
   setSearchParams: (params: URLSearchParams) => void
 ) => {
   const newParams = new URLSearchParams(searchParams);
-  const allFilters: FilterType[] = ["manufacturer", "category", "subcategory", "productType"];
+  const allFilters = FILTER_TYPES;
   
   allFilters.forEach(filter => {
     newParams.delete(FILTER_PARAM_MAP[filter]);
@@ -108,7 +103,7 @@ export const clearAllFilters = (
  * @returns True if any filters are active
  */
 export const hasActiveFilters = (searchParams: URLSearchParams): boolean => {
-  const allFilters: FilterType[] = ["manufacturer", "category", "subcategory", "productType"];
+  const allFilters = FILTER_TYPES;
   return allFilters.some(filter => searchParams.has(FILTER_PARAM_MAP[filter]));
 };
 
