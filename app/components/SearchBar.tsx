@@ -33,7 +33,7 @@ export function SearchBar({
         <input
           type="search"
           name={UI_TEXT.SEARCH_PARAMS.QUERY}
-          className={`${DIMENSIONS.BLOCK_W_FULL} ${DIMENSIONS.PL_10} ${DIMENSIONS.PR_3} ${DIMENSIONS.PY_2} border border-mouser-border-medium ${DIMENSIONS.ROUNDED_LG} ${DIMENSIONS.LEADING_5} bg-white placeholder-mouser-text-disabled focus:placeholder-mouser-text-tertiary ${DIMENSIONS.FOCUS_RING_LIGHT} ${DIMENSIONS.SEARCH_TRANSITION}`}
+          className={`${DIMENSIONS.BLOCK_W_FULL} ${DIMENSIONS.PL_10} ${DIMENSIONS.PR_3} ${DIMENSIONS.PY_2} ${DIMENSIONS.BORDER} ${DIMENSIONS.BORDER_MEDIUM} ${DIMENSIONS.ROUNDED_LG} ${DIMENSIONS.LEADING_5} ${DIMENSIONS.BG_WHITE} placeholder-mouser-text-disabled focus:placeholder-mouser-text-tertiary ${DIMENSIONS.FOCUS_RING_LIGHT} ${DIMENSIONS.SEARCH_TRANSITION}`}
           placeholder={placeholder}
           defaultValue={defaultValue}
         />

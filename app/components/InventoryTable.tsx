@@ -18,7 +18,7 @@ interface InventoryTableProps {
 export function InventoryTable({ inventory }: InventoryTableProps) {
   return (
     <div className={`${DIMENSIONS.CONTAINER_CARD} ${DIMENSIONS.OVERFLOW_HIDDEN}`}>
-      <div className={`${DIMENSIONS.HEADER_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
+      <div className={`${DIMENSIONS.HEADER_PADDING} ${DIMENSIONS.BORDER_B} ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
         <div className={DIMENSIONS.FLEX_BETWEEN}>
           <h2 className={`${DIMENSIONS.TEXT_SM} ${DIMENSIONS.FONT_SEMIBOLD} text-mouser-text-primary`}>
             {UI_TEXT.LABELS.RESULTS} {inventory.length.toLocaleString()}
@@ -61,7 +61,7 @@ export function InventoryTable({ inventory }: InventoryTableProps) {
           </thead>
           <tbody className={`bg-mouser-bg-white ${DIMENSIONS.DIVIDE_Y} ${DIMENSIONS.BORDER_LIGHT}`}>
             {inventory.map((item) => (
-              <tr key={item.ID} className={`hover:bg-mouser-hover-gray ${DIMENSIONS.TRANSITION_COLORS}`}>
+              <tr key={item.ID} className={`${DIMENSIONS.HOVER_BG_GRAY} ${DIMENSIONS.TRANSITION_COLORS}`}>
                 <td className={DIMENSIONS.TABLE_CELL_BASE}>
                   <ComponentImage item={item} />
                 </td>

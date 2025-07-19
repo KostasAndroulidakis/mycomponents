@@ -46,7 +46,7 @@ export default function Index() {
   const { inventory, manufacturers } = useLoaderData<typeof loader>();
 
   return (
-    <div className={`w-full ${DIMENSIONS.MAIN_PADDING} ${DIMENSIONS.CONTENT_PADDING} ${DIMENSIONS.SECTION_SPACING}`}>
+    <div className={`${DIMENSIONS.W_FULL} ${DIMENSIONS.MAIN_PADDING} ${DIMENSIONS.CONTENT_PADDING} ${DIMENSIONS.SECTION_SPACING}`}>
       <FilterMenu manufacturers={manufacturers} />
 
       <InventoryTable inventory={inventory} />

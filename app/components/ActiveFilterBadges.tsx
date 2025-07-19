@@ -20,7 +20,7 @@ interface FilterBadgeProps {
  */
 export function FilterBadge({ label, value, onRemove }: FilterBadgeProps): JSX.Element {
   return (
-    <span className={`${DIMENSIONS.INLINE_FLEX_ITEMS} ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
+    <span className={`${DIMENSIONS.INLINE_FLEX_ITEMS} ${DIMENSIONS.BADGE_PADDING} ${DIMENSIONS.ROUNDED} ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
       {label} {value}
       <button
         onClick={onRemove}

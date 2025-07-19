@@ -33,22 +33,22 @@ export function FilterMenuHeader({
   onRemoveProductType,
 }: FilterMenuHeaderProps): JSX.Element {
   return (
-    <div className={`${DIMENSIONS.HEADER_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
+    <div className={`${DIMENSIONS.HEADER_PADDING} ${DIMENSIONS.BORDER_B} ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
       <div className={DIMENSIONS.FLEX_BETWEEN}>
-        <h2 className="text-sm font-semibold text-mouser-text-primary">
+        <h2 className={`${DIMENSIONS.TEXT_SM} ${DIMENSIONS.FONT_SEMIBOLD} text-mouser-text-primary`}>
           {UI_TEXT.LABELS.APPLIED_FILTERS}
         </h2>
         {hasFilters && (
           <div className={`${DIMENSIONS.FLEX_ITEMS_CENTER} ${DIMENSIONS.GAP_3}`}>
             <button
               onClick={onClearAll}
-              className={`text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}`}
+              className={`${DIMENSIONS.TEXT_XS} text-mouser-primary-light hover:text-mouser-hover-blue ${DIMENSIONS.FONT_MEDIUM} ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}`}
             >
               {UI_TEXT.ACTIONS.RESET_ALL}
             </button>
             <button
               onClick={onClearAll}
-              className={`${DIMENSIONS.BUTTON_PADDING} bg-mouser-primary text-white ${DIMENSIONS.LABEL_TEXT_MEDIUM} rounded hover:bg-mouser-hover-blue ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING}`}
+              className={`${DIMENSIONS.BUTTON_PADDING} bg-mouser-primary text-mouser-text-white ${DIMENSIONS.LABEL_TEXT_MEDIUM} ${DIMENSIONS.ROUNDED} hover:bg-mouser-hover-blue ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING}`}
             >
               {UI_TEXT.ACTIONS.APPLY_FILTERS}
             </button>

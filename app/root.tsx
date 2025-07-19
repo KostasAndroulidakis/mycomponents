@@ -10,6 +10,7 @@ import type { LinksFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { TopBar } from "./components/TopBar";
 import { getInventoryCount } from "./services/inventoryService";
+import { DIMENSIONS } from "./constants/dimensions";
 import { CONFIG } from "~/constants/config";
 
 import "./tailwind.css";
@@ -69,7 +70,7 @@ export default function App() {
   const { totalComponents } = useLoaderData<typeof loader>();
 
   return (
-    <div className="min-h-screen bg-mouser-bg-light">
+    <div className={`${DIMENSIONS.MIN_H_SCREEN} ${DIMENSIONS.BG_LIGHT}`}>
       <TopBar totalComponents={totalComponents} />
       <main>
         <Outlet />

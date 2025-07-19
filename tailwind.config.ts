@@ -24,6 +24,7 @@ export default {
           'text-secondary': colors.text.secondary,
           'text-tertiary': colors.text.tertiary,
           'text-disabled': colors.text.disabled,
+          'text-white': colors.text.white,
           'text-white-hover': colors.text.whiteHover,
           
           // Borders

@@ -18,17 +18,17 @@ interface TopBarProps {
  */
 export function TopBar({ totalComponents }: TopBarProps) {
   return (
-    <header className={`bg-mouser-primary ${DIMENSIONS.SHADOW_SM} border-b ${DIMENSIONS.BORDER_LIGHT}`}>
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+    <header className={`bg-mouser-primary ${DIMENSIONS.SHADOW_SM} ${DIMENSIONS.BORDER_B} ${DIMENSIONS.BORDER_LIGHT}`}>
+      <div className={`${DIMENSIONS.W_FULL} ${DIMENSIONS.MAIN_PADDING}`}>
         <div className={`${DIMENSIONS.FLEX_BETWEEN} ${DIMENSIONS.HEADER_HEIGHT} ${DIMENSIONS.HEADER_GAPS}`}>
           {/* Logo and Brand */}
           <div className={DIMENSIONS.FLEX_SHRINK_0}>
             <Link
               to={PATHS.HOME}
-              className={`${DIMENSIONS.FLEX_ITEMS_CENTER} ${DIMENSIONS.SPACE_X_2} ${DIMENSIONS.TEXT_XL} ${DIMENSIONS.FONT_BOLD} text-white hover:text-mouser-text-white-hover ${DIMENSIONS.BRAND_TRANSITION} ${DIMENSIONS.FOCUS_RING}`}
+              className={`${DIMENSIONS.FLEX_ITEMS_CENTER} ${DIMENSIONS.SPACE_X_2} ${DIMENSIONS.TEXT_XL} ${DIMENSIONS.FONT_BOLD} text-mouser-text-white hover:text-mouser-text-white-hover ${DIMENSIONS.BRAND_TRANSITION} ${DIMENSIONS.FOCUS_RING}`}
             >
               <div className={`${DIMENSIONS.LOGO_SIZE} bg-mouser-orange ${DIMENSIONS.ROUNDED_LG} ${DIMENSIONS.FLEX_CENTER}`}>
-                <span className={`text-white ${DIMENSIONS.FONT_BOLD} ${DIMENSIONS.TEXT_SM}`}>
+                <span className={`text-mouser-text-white ${DIMENSIONS.FONT_BOLD} ${DIMENSIONS.TEXT_SM}`}>
                   {UI_TEXT.BRAND.LOGO_ABBREVIATION}
                 </span>
               </div>
@@ -37,13 +37,13 @@ export function TopBar({ totalComponents }: TopBarProps) {
           </div>
 
           {/* Search Bar - Now takes up more space */}
-          <div className="flex-1">
-            <SearchBar className="w-full" />
+          <div className={DIMENSIONS.FLEX_1}>
+            <SearchBar className={DIMENSIONS.W_FULL} />
           </div>
 
           {/* Total Components Count */}
           <div className={DIMENSIONS.FLEX_SHRINK_0}>
-            <div className={`text-white ${DIMENSIONS.TEXT_SM} ${DIMENSIONS.FONT_MEDIUM}`}>
+            <div className={`text-mouser-text-white ${DIMENSIONS.TEXT_SM} ${DIMENSIONS.FONT_MEDIUM}`}>
               {UI_TEXT.LABELS.TOTAL} {totalComponents?.toLocaleString() || UI_TEXT.DEFAULTS.COUNT_FALLBACK} {UI_TEXT.LABELS.COMPONENTS}
             </div>
           </div>

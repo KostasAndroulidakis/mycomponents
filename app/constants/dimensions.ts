@@ -51,13 +51,17 @@ export const DIMENSIONS = {
   FOCUS_RING_LIGHT: "focus:outline-none focus:ring-2 focus:ring-mouser-primary-light focus:border-mouser-primary-light",
   
   // Border patterns
+  BORDER: "border",
+  BORDER_B: "border-b",
   BORDER_LIGHT: "border-mouser-border-light",
+  BORDER_MEDIUM: "border-mouser-border-medium",
   
   // Background patterns
   BG_LIGHT: "bg-mouser-bg-light",
+  BG_WHITE: "bg-mouser-bg-white",
   
   // Container patterns
-  CONTAINER_CARD: "bg-white rounded-lg shadow-sm border border-mouser-border-light",
+  CONTAINER_CARD: "bg-mouser-bg-white rounded-lg shadow-sm border border-mouser-border-light",
   
   // Layout patterns
   FLEX_BETWEEN: "flex items-center justify-between",
@@ -103,7 +107,10 @@ export const DIMENSIONS = {
   POINTER_EVENTS_NONE: "pointer-events-none",
   OVERFLOW_HIDDEN: "overflow-hidden",
   OVERFLOW_X_AUTO: "overflow-x-auto",
+  OVERFLOW_Y_AUTO: "overflow-y-auto",
   MIN_W_FULL: "min-w-full",
+  MIN_H_SCREEN: "min-h-screen",
+  W_FULL: "w-full",
   W_FULL_TEXT_LEFT: "w-full text-left",
   TEXT_CENTER: "text-center",
   WHITESPACE_NOWRAP: "whitespace-nowrap",
@@ -111,11 +118,15 @@ export const DIMENSIONS = {
   OBJECT_COVER: "object-cover",
   DIVIDE_Y: "divide-y",
   FLEX_SHRINK_0: "flex-shrink-0",
+  FLEX_1: "flex-1",
   TRUNCATE: "truncate",
   
   // Transitions
   SEARCH_TRANSITION: "transition duration-150 ease-in-out",
   BRAND_TRANSITION: "transition-colors duration-200",
+  
+  // Hover states
+  HOVER_BG_GRAY: "hover:bg-mouser-hover-gray",
   
   // Table styles
   TABLE_HEADER_CELL: "px-3 py-2 text-left text-xs font-semibold text-mouser-text-secondary",

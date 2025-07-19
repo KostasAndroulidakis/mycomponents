@@ -29,13 +29,13 @@ export function FilterPanel({
   isLoading = false 
 }: FilterPanelProps) {
   return (
-    <div className={`bg-white border ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.ROUNDED}`}>
-      <div className={`${DIMENSIONS.BG_LIGHT} ${DIMENSIONS.CELL_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT}`}>
+    <div className={`${DIMENSIONS.BG_WHITE} ${DIMENSIONS.BORDER} ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.ROUNDED}`}>
+      <div className={`${DIMENSIONS.BG_LIGHT} ${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.BORDER_B} ${DIMENSIONS.BORDER_LIGHT}`}>
         <h3 className={`${DIMENSIONS.LABEL_TEXT_SEMIBOLD} text-mouser-text-secondary ${DIMENSIONS.UPPERCASE_TRACKED}`}>
           {title}
         </h3>
       </div>
-      <div className={`${DIMENSIONS.FILTER_PANEL_MAX_HEIGHT} overflow-y-auto`}>
+      <div className={`${DIMENSIONS.FILTER_PANEL_MAX_HEIGHT} ${DIMENSIONS.OVERFLOW_Y_AUTO}`}>
         {isLoading ? (
           <div className={`${DIMENSIONS.SECTION_PADDING} ${DIMENSIONS.TEXT_CENTER} ${DIMENSIONS.TEXT_XS} text-mouser-text-disabled`}>
             {UI_TEXT.STATUS_MESSAGES.LOADING}
@@ -55,7 +55,7 @@ export function FilterPanel({
                     className={`${DIMENSIONS.W_FULL_TEXT_LEFT} ${DIMENSIONS.CELL_PADDING} ${DIMENSIONS.TEXT_XS} ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}
                       ${isSelected 
                         ? `bg-mouser-filter-badge-bg text-mouser-primary ${DIMENSIONS.FONT_MEDIUM} hover:bg-mouser-filter-badge-hover-bg` 
-                        : 'text-mouser-text-tertiary hover:bg-mouser-hover-gray'
+                        : `text-mouser-text-tertiary ${DIMENSIONS.HOVER_BG_GRAY}`
                       }`}
                   >
                     <span className={DIMENSIONS.FLEX_BETWEEN}>
