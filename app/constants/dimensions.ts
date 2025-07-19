@@ -71,8 +71,50 @@ export const DIMENSIONS = {
   
   // Spacing utilities
   ML_1: "ml-1",
+  ML_2: "ml-2",
   MT_2: "mt-2",
   GAP_3: "gap-3",
+  PL_3: "pl-3",
+  PL_10: "pl-10",
+  PR_3: "pr-3",
+  PY_2: "py-2",
+  PY_8: "py-8",
+  PX_2_PY_05: "px-2 py-0.5",
+  SPACE_X_2: "space-x-2",
+  
+  // Border radius
+  ROUNDED: "rounded",
+  ROUNDED_LG: "rounded-lg",
+  
+  // Typography
+  TEXT_XS: "text-xs",
+  TEXT_SM: "text-sm",
+  TEXT_XL: "text-xl",
+  FONT_MEDIUM: "font-medium",
+  FONT_SEMIBOLD: "font-semibold",
+  FONT_BOLD: "font-bold",
+  LEADING_5: "leading-5",
+  UPPERCASE_TRACKED: "uppercase tracking-wide",
+  
+  // Layout utilities
+  RELATIVE: "relative",
+  BLOCK_W_FULL: "block w-full",
+  ABSOLUTE_ICON_LEFT: "absolute inset-y-0 left-0",
+  POINTER_EVENTS_NONE: "pointer-events-none",
+  OVERFLOW_HIDDEN: "overflow-hidden",
+  OVERFLOW_X_AUTO: "overflow-x-auto",
+  MIN_W_FULL: "min-w-full",
+  W_FULL_TEXT_LEFT: "w-full text-left",
+  TEXT_CENTER: "text-center",
+  WHITESPACE_NOWRAP: "whitespace-nowrap",
+  MAX_W_XS: "max-w-xs",
+  OBJECT_COVER: "object-cover",
+  DIVIDE_Y: "divide-y",
+  FLEX_SHRINK_0: "flex-shrink-0",
+  
+  // Transitions
+  SEARCH_TRANSITION: "transition duration-150 ease-in-out",
+  BRAND_TRANSITION: "transition-colors duration-200",
 } as const;
 
 export type DimensionKey = keyof typeof DIMENSIONS;

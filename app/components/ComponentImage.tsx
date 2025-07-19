@@ -25,18 +25,20 @@ export function ComponentImage({ item }: ComponentImageProps) {
 
   if (!item.Image || hasError) {
     return (
-      <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
-        <span className="text-xs text-mouser-text-disabled">{UI_TEXT.STATUS_MESSAGES.NO_IMAGE}</span>
+      <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium ${DIMENSIONS.ROUNDED} ${DIMENSIONS.FLEX_CENTER}`}>
+        <span className={`${DIMENSIONS.TEXT_XS} text-mouser-text-disabled`}>
+          {UI_TEXT.STATUS_MESSAGES.NO_IMAGE}
+        </span>
       </div>
     );
   }
 
   return (
-    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium rounded flex items-center justify-center`}>
+    <div className={`${DIMENSIONS.COMPONENT_IMAGE_CONTAINER} bg-mouser-bg-medium ${DIMENSIONS.ROUNDED} ${DIMENSIONS.FLEX_CENTER}`}>
       <img
         src={`${PATHS.COMPONENT_IMAGES}${item.Image}`}
         alt={item.Description}
-        className={`${DIMENSIONS.COMPONENT_IMAGE_SIZE} object-cover rounded`}
+        className={`${DIMENSIONS.COMPONENT_IMAGE_SIZE} ${DIMENSIONS.OBJECT_COVER} ${DIMENSIONS.ROUNDED}`}
         onError={handleImageError}
       />
     </div>
