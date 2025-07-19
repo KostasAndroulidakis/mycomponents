@@ -2,6 +2,8 @@
 
 A simple tool to track electronic components in my lab.
 
+![MyComponents Screenshot](public/screencapture.png)
+
 ## Why This Exists
 
 I needed to know what components I have without opening every storage box.
