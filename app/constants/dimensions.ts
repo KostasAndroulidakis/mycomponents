@@ -57,6 +57,21 @@ export const DIMENSIONS = {
   
   // Container patterns
   CONTAINER_CARD: "bg-white rounded-lg shadow-sm border border-mouser-border-light",
+  
+  // Layout patterns
+  FLEX_BETWEEN: "flex items-center justify-between",
+  FLEX_CENTER: "flex items-center justify-center",
+  FLEX_ITEMS_CENTER: "flex items-center",
+  FLEX_WRAP: "flex flex-wrap",
+  INLINE_FLEX_ITEMS: "inline-flex items-center",
+  
+  // Grid patterns
+  GRID_RESPONSIVE_4: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+  
+  // Spacing utilities
+  ML_1: "ml-1",
+  MT_2: "mt-2",
+  GAP_3: "gap-3",
 } as const;
 
 export type DimensionKey = keyof typeof DIMENSIONS;

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useSearchParams } from "@remix-run/react";
 import { FilterPanel } from "./FilterPanel";
+import { FilterMenuHeader } from "./FilterMenuHeader";
 import { CATEGORIES } from "~/constants/categories";
 import { DIMENSIONS } from "~/constants/dimensions";
 import { UI_TEXT } from "~/constants/ui-text";
@@ -23,6 +24,7 @@ interface FilterMenuProps {
 export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Extract current filter values for filter panels
   const selectedManufacturer = searchParams.get(UI_TEXT.SEARCH_PARAMS.MANUFACTURER) || "";
   const selectedCategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.CATEGORY) || "";
   const selectedSubcategory = searchParams.get(UI_TEXT.SEARCH_PARAMS.SUBCATEGORY) || "";
@@ -61,82 +63,18 @@ export function FilterMenu({ manufacturers = [] }: FilterMenuProps) {
 
   return (
     <div className={DIMENSIONS.CONTAINER_CARD}>
-      <div className={`${DIMENSIONS.HEADER_PADDING} border-b ${DIMENSIONS.BORDER_LIGHT} ${DIMENSIONS.BG_LIGHT}`}>
-        <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-mouser-text-primary">{UI_TEXT.LABELS.APPLIED_FILTERS}</h2>
-          {hasFilters && (
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleClearAllFilters}
-                className={`text-xs text-mouser-primary-light hover:text-mouser-hover-blue font-medium ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-              >
-                {UI_TEXT.ACTIONS.RESET_ALL}
-              </button>
-              <button
-                onClick={handleClearAllFilters}
-                className={`${DIMENSIONS.BUTTON_PADDING} bg-mouser-primary text-white ${DIMENSIONS.LABEL_TEXT_MEDIUM} rounded hover:bg-mouser-hover-blue ${DIMENSIONS.TRANSITION_COLORS} ${DIMENSIONS.FOCUS_RING}`}
-              >
-                {UI_TEXT.ACTIONS.APPLY_FILTERS}
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Active Filters Summary */}
-        {hasFilters && (
-          <div className="mt-2">
-            <div className={`flex flex-wrap ${DIMENSIONS.BADGE_GAPS}`}>
-              {selectedManufacturer && (
-                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
-                  {UI_TEXT.FILTER_BADGES.MANUFACTURER} {selectedManufacturer}
-                  <button
-                    onClick={() => handleManufacturerClick(selectedManufacturer)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-                  >
-                    ×
-                  </button>
-                </span>
-              )}
-              {selectedCategory && (
-                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
-                  {UI_TEXT.FILTER_BADGES.CATEGORY} {selectedCategory}
-                  <button
-                    onClick={() => handleCategoryClick(selectedCategory)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-                  >
-                    ×
-                  </button>
-                </span>
-              )}
-              {selectedSubcategory && (
-                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
-                  {UI_TEXT.FILTER_BADGES.SUBCATEGORY} {selectedSubcategory}
-                  <button
-                    onClick={() => handleSubcategoryClick(selectedSubcategory)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-                  >
-                    ×
-                  </button>
-                </span>
-              )}
-              {selectedProductType && (
-                <span className={`inline-flex items-center ${DIMENSIONS.BADGE_PADDING} rounded ${DIMENSIONS.LABEL_TEXT_MEDIUM} bg-mouser-filter-badge-bg text-mouser-primary`}>
-                  {UI_TEXT.FILTER_BADGES.PRODUCT_TYPE} {selectedProductType}
-                  <button
-                    onClick={() => handleProductTypeClick(selectedProductType)}
-                    className={`ml-1 ${DIMENSIONS.CLOSE_BUTTON_SIZE} text-mouser-primary hover:text-mouser-hover-blue ${DIMENSIONS.FOCUS_RING_LIGHT}`}
-                  >
-                    ×
-                  </button>
-                </span>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+      <FilterMenuHeader
+        hasFilters={hasFilters}
+        onClearAll={handleClearAllFilters}
+        searchParams={searchParams}
+        onRemoveManufacturer={handleManufacturerClick}
+        onRemoveCategory={handleCategoryClick}
+        onRemoveSubcategory={handleSubcategoryClick}
+        onRemoveProductType={handleProductTypeClick}
+      />
 
       <div className="p-4">
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${DIMENSIONS.FILTER_GRID_GAPS}`}>
+        <div className={`${DIMENSIONS.GRID_RESPONSIVE_4} ${DIMENSIONS.FILTER_GRID_GAPS}`}>
           {/* Manufacturer Filter */}
           <FilterPanel
             title={UI_TEXT.FILTER_PANELS.MANUFACTURER}

@@ -3,6 +3,7 @@ export const UI_TEXT = {
     RESET_ALL: "Reset All",
     APPLY_FILTERS: "Apply Filters",
     SEARCH_PLACEHOLDER: "Search components...",
+    CLOSE_FILTER: "×",
   },
 
   LABELS: {
