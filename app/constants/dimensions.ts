@@ -36,6 +36,7 @@ export const DIMENSIONS = {
   BADGE_PADDING: "px-2 py-1",
   SECTION_PADDING: "px-3 py-4",
   BUTTON_PADDING: "px-3 py-1",
+  FILTER_CONTENT_PADDING: "p-4",
   
   // Text styles
   LABEL_TEXT_SEMIBOLD: "text-xs font-semibold",

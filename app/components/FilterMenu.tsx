@@ -1,8 +1,7 @@
-import { FilterPanel } from "./FilterPanel";
 import { FilterMenuHeader } from "./FilterMenuHeader";
+import { FilterGrid } from "./FilterGrid";
 import { useFilterState } from "~/hooks/useFilterState";
 import { DIMENSIONS } from "~/constants/dimensions";
-import { UI_TEXT } from "~/constants/ui-text";
 
 /**
  * Props for the FilterMenu component
@@ -19,63 +18,24 @@ interface FilterMenuProps {
  * Uses custom hook for state management and renders filter panels
  */
 export function FilterMenu({ manufacturers = [] }: FilterMenuProps): JSX.Element {
-  const {
-    searchParams,
-    selectedFilters,
-    filterOptions,
-    handlers,
-    hasFilters,
-  } = useFilterState();
+  const filterState = useFilterState();
 
   return (
     <div className={DIMENSIONS.CONTAINER_CARD}>
       <FilterMenuHeader
-        hasFilters={hasFilters}
-        onClearAll={handlers.handleClearAllFilters}
-        searchParams={searchParams}
-        onRemoveManufacturer={handlers.handleManufacturerClick}
-        onRemoveCategory={handlers.handleCategoryClick}
-        onRemoveSubcategory={handlers.handleSubcategoryClick}
-        onRemoveProductType={handlers.handleProductTypeClick}
+        hasFilters={filterState.hasFilters}
+        onClearAll={filterState.handlers.handleClearAllFilters}
+        searchParams={filterState.searchParams}
+        onRemoveManufacturer={filterState.handlers.handleManufacturerClick}
+        onRemoveCategory={filterState.handlers.handleCategoryClick}
+        onRemoveSubcategory={filterState.handlers.handleSubcategoryClick}
+        onRemoveProductType={filterState.handlers.handleProductTypeClick}
       />
 
-      <div className="p-4">
-        <div className={`${DIMENSIONS.GRID_RESPONSIVE_4} ${DIMENSIONS.FILTER_GRID_GAPS}`}>
-          {/* Manufacturer Filter */}
-          <FilterPanel
-            title={UI_TEXT.FILTER_PANELS.MANUFACTURER}
-            items={manufacturers}
-            selectedItems={selectedFilters.manufacturer ? [selectedFilters.manufacturer] : []}
-            onItemClick={handlers.handleManufacturerClick}
-          />
-
-          {/* Category Filter */}
-          <FilterPanel
-            title={UI_TEXT.FILTER_PANELS.CATEGORY}
-            items={filterOptions.categories}
-            selectedItems={selectedFilters.category ? [selectedFilters.category] : []}
-            onItemClick={handlers.handleCategoryClick}
-          />
-
-          {/* Subcategory Filter */}
-          <FilterPanel
-            title={UI_TEXT.FILTER_PANELS.SUBCATEGORY}
-            items={filterOptions.subcategories}
-            selectedItems={selectedFilters.subcategory ? [selectedFilters.subcategory] : []}
-            onItemClick={handlers.handleSubcategoryClick}
-            isLoading={Boolean(selectedFilters.category && filterOptions.subcategories.length === 0)}
-          />
-
-          {/* Product Type Filter */}
-          <FilterPanel
-            title={UI_TEXT.FILTER_PANELS.PRODUCT_TYPE}
-            items={filterOptions.productTypes}
-            selectedItems={selectedFilters.productType ? [selectedFilters.productType] : []}
-            onItemClick={handlers.handleProductTypeClick}
-            isLoading={Boolean(selectedFilters.subcategory && filterOptions.productTypes.length === 0)}
-          />
-        </div>
-      </div>
+      <FilterGrid
+        manufacturers={manufacturers}
+        filterState={filterState}
+      />
     </div>
   );
 }
