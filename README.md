@@ -29,10 +29,10 @@ I needed to know what components I have without opening every storage box.
 
 ## Tech Stack
 
-**Remix** - Server-side rendering, works without JavaScript
-**TypeScript** - Type safety throughout
-**Tailwind CSS** - Utility-first styling
-**CSV Storage** - Simple, portable, version-controllable
+- **Remix:** Server-side rendering, works without JavaScript
+- **TypeScript:** Type safety throughout
+- **Tailwind CSS:** Utility-first styling
+- **CSV Storage:** Simple, portable, version-controllable
 
 ## Running Locally
 
