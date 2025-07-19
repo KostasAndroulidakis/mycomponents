@@ -1,40 +1,64 @@
-# Welcome to Remix!
+# MyComponents
 
-- 📖 [Remix docs](https://remix.run/docs)
+A simple tool to track electronic components in my lab.
 
-## Development
+## Why This Exists
 
-Run the dev server:
+I needed to know what components I have without opening every storage box.
 
-```sh
+## Features
+
+### Implemented ✅
+
+- View all components in a searchable table
+- Filter by manufacturer, category, subcategory, and product type
+- Search by description, part number, or any field
+- Mobile-responsive design for checking at the workbench
+- CSV-based storage (easy to update manually)
+
+### Planned Features
+
+- [ ] Add/remove components through the UI
+- [ ] Edit component details (quantity, description, etc)
+- [ ] Export filtered results
+- [ ] Low stock warnings
+- [ ] Upload component images
+- [ ] Barcode scanning for quick lookup
+
+## Tech Stack
+
+**Remix** - Server-side rendering, works without JavaScript
+**TypeScript** - Type safety throughout
+**Tailwind CSS** - Utility-first styling
+**CSV Storage** - Simple, portable, version-controllable
+
+## Running Locally
+
+```bash
+npm install
 npm run dev
 ```
 
-## Deployment
+Visit `http://localhost:5173`
 
-First, build your app for production:
+## Project Structure
 
-```sh
-npm run build
+```text
+app/
+├── components/     # Reusable UI components
+├── constants/      # Centralized configuration
+├── services/       # Business logic
+├── utils/          # Helper functions
+└── routes/         # Page handlers
 ```
 
-Then run the app in production mode:
+## Design Decisions
 
-```sh
-npm start
-```
+1. **No hardcoded values** - All constants centralized
+2. **Type safety** - Zero runtime type errors
+3. **Single responsibility** - Each function does one thing
+4. **Progressive enhancement** - Works without JavaScript
 
-Now you'll need to pick a host to deploy it to.
+---
 
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+A practical tool for a real problem. Built to evolve with my needs.
